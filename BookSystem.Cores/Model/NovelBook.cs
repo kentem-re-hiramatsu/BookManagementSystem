@@ -2,7 +2,7 @@
 {
     public class NovelBook : Book
     {
-        public NovelBook(string title, BookDetail detail) : base(title, detail)
+        public NovelBook(string title, BookDetail detail, Borrowing borrowing) : base(title, detail, borrowing)
         {
             Type = "小説";
             Title = title;
