@@ -16,6 +16,7 @@ namespace BookSystemTest.ModelTest
             Assert.AreEqual(20, Nobel.Detail.TargetAge);
             Assert.AreEqual("芥川龍之介", Nobel.Detail.Author);
             Assert.AreEqual("昔話", Nobel.Detail.OverView);
+            Assert.AreEqual(true, Nobel.Detail.IsLendable);
         }
     }
 }
