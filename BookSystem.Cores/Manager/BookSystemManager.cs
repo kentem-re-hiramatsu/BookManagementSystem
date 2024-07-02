@@ -1,5 +1,4 @@
 ﻿using BookSystem.Cores.Model;
-using System;
 using System.Collections.Generic;
 
 namespace BookSystem.Cores.Manager
@@ -31,38 +30,6 @@ namespace BookSystem.Cores.Manager
             bookDetail.TargetAge = targetAge;
             bookDetail.Author = author;
             bookDetail.OverView = overView;
-        }
-
-        public void BorrowingProcess(int index)
-        {
-            var bookBorrowing = _bookOrderList[index].Borrowing;
-
-            if (bookBorrowing.IsLendable)
-            {
-                bookBorrowing.IsLendable = false;
-                bookBorrowing.BorrowingTime = DateTime.Now;
-                bookBorrowing.BorrowingPeriod = DateTime.Now.AddDays(14);
-            }
-            else
-            {
-                throw new Exception("貸出されているため貸し出すことができません。");
-            }
-        }
-
-        public void ReturnProcess(int index)
-        {
-            var bookBorrowing = _bookOrderList[index].Borrowing;
-
-            if (!bookBorrowing.IsLendable)
-            {
-                bookBorrowing.IsLendable = true;
-                bookBorrowing.BorrowingTime = null;
-                bookBorrowing.BorrowingPeriod = null;
-            }
-            else
-            {
-                throw new Exception("貸出がされていません。");
-            }
         }
     }
 }
