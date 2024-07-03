@@ -1,17 +1,19 @@
-﻿namespace BookSystem.Cores.Model
+﻿using BookSystem.Cores.Enum;
+
+namespace BookSystem.Cores.Model
 {
     public abstract class Book
     {
         public string Title { get; set; }
-        public string Type { get; protected set; }
+        public BookType Type { get; protected set; }
         public BookDetail Detail { get; set; }
         public Borrowing Borrowing { get; set; }
 
-        public Book(string title, BookDetail detail, Borrowing borrowing)
+        public Book(string title, BookDetail detail)
         {
             Title = title;
             Detail = detail;
-            Borrowing = borrowing;
+            Borrowing = new Borrowing();
         }
     }
 }
