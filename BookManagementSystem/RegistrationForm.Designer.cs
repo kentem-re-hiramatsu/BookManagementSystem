@@ -50,6 +50,7 @@
             this.TitleTextBox.Name = "TitleTextBox";
             this.TitleTextBox.Size = new System.Drawing.Size(140, 21);
             this.TitleTextBox.TabIndex = 1;
+            this.TitleTextBox.TextChanged += new System.EventHandler(this.TitleTextBox_TextChanged);
             // 
             // AuthorTextBox
             // 
@@ -58,6 +59,7 @@
             this.AuthorTextBox.Name = "AuthorTextBox";
             this.AuthorTextBox.Size = new System.Drawing.Size(140, 21);
             this.AuthorTextBox.TabIndex = 3;
+            this.AuthorTextBox.TextChanged += new System.EventHandler(this.TitleTextBox_TextChanged);
             // 
             // OverviewTextBox
             // 
@@ -66,6 +68,7 @@
             this.OverviewTextBox.Name = "OverviewTextBox";
             this.OverviewTextBox.Size = new System.Drawing.Size(140, 21);
             this.OverviewTextBox.TabIndex = 4;
+            this.OverviewTextBox.TextChanged += new System.EventHandler(this.TitleTextBox_TextChanged);
             // 
             // NameLabel
             // 
@@ -129,7 +132,7 @@
             this.BookComboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.BookComboBox.Name = "BookComboBox";
             this.BookComboBox.Size = new System.Drawing.Size(140, 21);
-            this.BookComboBox.TabIndex = 10;
+            this.BookComboBox.TabIndex = 0;
             // 
             // AgeNumericUpDown
             // 
@@ -137,7 +140,7 @@
             this.AgeNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.AgeNumericUpDown.Name = "AgeNumericUpDown";
             this.AgeNumericUpDown.Size = new System.Drawing.Size(140, 21);
-            this.AgeNumericUpDown.TabIndex = 11;
+            this.AgeNumericUpDown.TabIndex = 2;
             this.AgeNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // CancelButton
@@ -145,18 +148,21 @@
             this.CancelButton.Location = new System.Drawing.Point(91, 301);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(75, 23);
-            this.CancelButton.TabIndex = 12;
+            this.CancelButton.TabIndex = 6;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // RegistrationButton
             // 
+            this.RegistrationButton.Enabled = false;
             this.RegistrationButton.Location = new System.Drawing.Point(172, 301);
             this.RegistrationButton.Name = "RegistrationButton";
             this.RegistrationButton.Size = new System.Drawing.Size(75, 23);
-            this.RegistrationButton.TabIndex = 13;
+            this.RegistrationButton.TabIndex = 5;
             this.RegistrationButton.Text = "登録";
             this.RegistrationButton.UseVisualStyleBackColor = true;
+            this.RegistrationButton.Click += new System.EventHandler(this.RegistrationButton_Click);
             // 
             // RegistrationForm
             // 
@@ -179,6 +185,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "RegistrationForm";
             this.Text = "登録画面";
+            this.Load += new System.EventHandler(this.RegistrationForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.AgeNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

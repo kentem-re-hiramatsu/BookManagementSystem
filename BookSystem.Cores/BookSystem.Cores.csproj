@@ -41,15 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enum\BookType.cs" />
+    <Compile Include="Manager\BookSystemManager.cs" />
     <Compile Include="Model\Book.cs" />
     <Compile Include="Model\BookDetail.cs" />
+    <Compile Include="Model\Borrowing.cs" />
     <Compile Include="Model\ComicBook.cs" />
     <Compile Include="Model\NovelBook.cs" />
     <Compile Include="Model\PictureBook.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Manager\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
