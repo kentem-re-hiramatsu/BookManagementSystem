@@ -1,12 +1,14 @@
-﻿namespace BookSystem.Cores.Model
+﻿using BookSystem.Cores.Enum;
+
+namespace BookSystem.Cores.Model
 {
     public class ComicBook : Book
     {
-        public ComicBook(string title, BookDetail detail, Borrowing borrowing) : base(title, detail, borrowing)
+        private const BookType TYPE = BookType.漫画;
+
+        public ComicBook(string title, BookDetail detail) : base(title, detail)
         {
-            Type = "漫画";
-            Title = title;
-            Detail = detail;
+            Type = TYPE;
         }
     }
 }
