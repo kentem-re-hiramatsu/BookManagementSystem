@@ -27,7 +27,33 @@ namespace BookSystemTest.ModelTest
 
             //貸出期限を15日以上入力するとエラー
             Assert.ThrowsException<Exception>(() => bookBorrowing.SetBorrowingProcess(DateTime.Now.AddDays(15)));
-            Assert.ThrowsException<Exception>(() => bookBorrowing);
+            //貸出中のためエラー
+            Assert.ThrowsException<Exception>(() => bookBorrowing.SetBorrowingProcess(DateTime.Now.AddDays(14)));
+        }
+
+        [TestMethod]
+        public void SetReturnProcess()
+        {
+            var book = new ComicBook("ワンピース", new BookDetail(10, "尾田", ""));
+            var bookBorrowing = book.Borrowing;
+            Assert.IsTrue(bookBorrowing.IsLendable);
+
+            bookBorrowing.SetBorrowingProcess(DateTime.Now.AddDays(14));
+            var lendingDate = DateTime.Now;
+            var deadlineDateTime = DateTime.Now.AddDays(14);
+
+            Assert.IsFalse(bookBorrowing.IsLendable);
+            Assert.AreEqual(lendingDate, bookBorrowing.BorrowingTime);
+            Assert.AreEqual(deadlineDateTime, bookBorrowing.BorrowingPeriod);
+
+            bookBorrowing.SetReturnProcess();
+
+            Assert.IsTrue(bookBorrowing.IsLendable);
+            Assert.IsNull(bookBorrowing.BorrowingTime);
+            Assert.IsNull(bookBorrowing.BorrowingPeriod);
+
+            //貸出していない時に返却しようとしているためエラー
+            Assert.ThrowsException<Exception>(() => bookBorrowing.SetReturnProcess());
         }
     }
 }
