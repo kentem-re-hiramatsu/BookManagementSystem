@@ -9,7 +9,7 @@ namespace BookSystemTest.ModelTest
         [TestMethod]
         public void NobelTest()
         {
-            var Nobel = new NovelBook("羅生門", new BookDetail(20, "芥川龍之介", "昔話"), new Borrowing());
+            var Nobel = new NovelBook("羅生門", new BookDetail(20, "芥川龍之介", "昔話"));
 
             Assert.AreEqual("小説", Nobel.Type);
             Assert.AreEqual("羅生門", Nobel.Title);

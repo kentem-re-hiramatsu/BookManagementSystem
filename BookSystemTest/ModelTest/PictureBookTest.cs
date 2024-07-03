@@ -9,7 +9,7 @@ namespace BookSystemTest.ModelTest
         [TestMethod]
         public void PictureTest()
         {
-            var picture = new PictureBook("ぐりとぐら", new BookDetail(0, "中川", "ぐりとぐらを主人公とする物語。"), new Borrowing());
+            var picture = new PictureBook("ぐりとぐら", new BookDetail(0, "中川", "ぐりとぐらを主人公とする物語。"));
 
             Assert.AreEqual("絵本", picture.Type);
             Assert.AreEqual("ぐりとぐら", picture.Title);
