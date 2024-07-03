@@ -55,5 +55,17 @@ namespace BookSystemTest.ModelTest
             //貸出していない時に返却しようとしているためエラー
             Assert.ThrowsException<Exception>(() => bookBorrowing.SetReturnProcess());
         }
+
+        [TestMethod]
+        public void GetLendingStatusByshapeTest()
+        {
+            var book = new ComicBook("ワンピース", new BookDetail(10, "尾田", ""));
+            var bookBorrowing = book.Borrowing;
+
+            Assert.AreEqual("〇", bookBorrowing.GetLendingStatusByshape());
+
+            bookBorrowing.SetBorrowingProcess(DateTime.Now.AddDays(14));
+            Assert.AreEqual("×", bookBorrowing.GetLendingStatusByshape());
+        }
     }
 }
