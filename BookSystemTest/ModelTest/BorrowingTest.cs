@@ -67,5 +67,17 @@ namespace BookSystemTest.ModelTest
             bookBorrowing.SetBorrowingProcess(DateTime.Now.AddDays(14));
             Assert.AreEqual("×", bookBorrowing.GetLendingStatusByshape());
         }
+
+        [TestMethod]
+        public void GetLendingStatus()
+        {
+            var book = new ComicBook("ワンピース", new BookDetail(10, "尾田", ""));
+            var bookBorrowing = book.Borrowing;
+
+            Assert.AreEqual("貸出可", bookBorrowing.GetLendingStatus());
+
+            bookBorrowing.SetBorrowingProcess(DateTime.Now.AddDays(14));
+            Assert.AreEqual("貸出中", bookBorrowing.GetLendingStatus());
+        }
     }
 }
