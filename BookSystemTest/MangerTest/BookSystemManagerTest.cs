@@ -57,9 +57,9 @@ namespace BookSystemTest.MangerTest
             var comic = bookSystemMana.GetBookInstance(BookType.漫画, "ワンピース", new BookDetail(15, "尾田栄一郎", ""));
             var nobel = bookSystemMana.GetBookInstance(BookType.小説, "ぐり", new BookDetail(0, "ぐら", ""));
 
-            Assert.AreEqual(BookType.絵本, picture.Type);
-            Assert.AreEqual(BookType.漫画, comic.Type);
-            Assert.AreEqual(BookType.小説, nobel.Type);
+            Assert.AreEqual("絵本", picture.Type);
+            Assert.AreEqual("漫画", comic.Type);
+            Assert.AreEqual("小説", nobel.Type);
 
             Assert.AreEqual("ぐりとぐら", picture.Title);
             Assert.AreEqual("ワンピース", comic.Title);
