@@ -49,7 +49,7 @@ namespace BookSystem.Cores.Model
         {
             if (IsLendable)
                 return "〇";
-            else if (BorrowingPeriod > BorrowingTime)
+            else if (DateTime.Now > BorrowingPeriod)
                 return "×!";
             else
                 return "×";
