@@ -13,13 +13,17 @@ namespace BookSystem.Cores.Model
             IsLendable = true;
         }
 
-        public void SetBorrowingProcess()
+        public void SetBorrowingProcess(DateTime deadlineDateTime)
         {
             if (IsLendable)
             {
                 IsLendable = false;
                 BorrowingTime = DateTime.Now;
-                BorrowingPeriod = DateTime.Now.AddDays(14);
+
+                if (DateTime.Now.AddDays(15) > deadlineDateTime)
+                    BorrowingPeriod = deadlineDateTime;
+                else
+                    throw new Exception("貸出期限は２週間以内です。");
             }
             else
             {
@@ -29,7 +33,7 @@ namespace BookSystem.Cores.Model
 
         public void SetReturnProcess()
         {
-            if (IsLendable)
+            if (!IsLendable)
             {
                 IsLendable = true;
                 BorrowingTime = null;
