@@ -1,4 +1,5 @@
-﻿using BookSystem.Cores.Model;
+﻿using BookSystem.Cores.Enum;
+using BookSystem.Cores.Model;
 using System.Collections.Generic;
 
 namespace BookSystem.Cores.Manager
@@ -16,6 +17,21 @@ namespace BookSystem.Cores.Manager
         public Book Get(int index)
         {
             return _bookOrderList[index];
+        }
+
+        public Book GetBookInstance(BookType type, string title, BookDetail detail)
+        {
+            switch (type)
+            {
+                case BookType.絵本:
+                    return new PictureBook(title, detail);
+                case BookType.漫画:
+                    return new ComicBook(title, detail);
+                case BookType.小説:
+                    return new NovelBook(title, detail);
+                default:
+                    return null;
+            }
         }
 
         public void Remove(int index)
