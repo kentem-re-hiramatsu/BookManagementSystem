@@ -66,6 +66,10 @@ namespace BookSystemTest.ModelTest
 
             bookBorrowing.SetBorrowing(DateTime.Now.AddDays(13));
             Assert.AreEqual("×", bookBorrowing.GetLendingStatusByshape());
+            book.Borrowing.SetReturn();
+
+            bookBorrowing.SetBorrowing(DateTime.Now.AddDays(-1));
+            Assert.AreEqual("×!", bookBorrowing.GetLendingStatusByshape());
         }
 
         [TestMethod]
