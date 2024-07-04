@@ -103,6 +103,7 @@ namespace BookManagementSystem
             UserNameTextBox.Text = null;
             UserAgeUpDown.Value = 0;
 
+            UserComboBox.Items.Clear();
             foreach (var user in _userMana.UserDatas)
             {
                 UserComboBox.Items.Add(user.Name);
