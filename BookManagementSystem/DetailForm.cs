@@ -17,22 +17,15 @@ namespace BookManagementSystem
 
         private void DetailForm_Load(object sender, System.EventArgs e)
         {
-            foreach (var book in _bookmana.BookOrderList)
-            {
-                BookListView.Items.Add(
-                    new ListViewItem(
-                        new string[]
-                        {
-                            book.Type,
-                            book.Title,
-                            book.Detail.TargetAge.ToString(),
-                            book.Detail.Author,
-                            book.Detail.OverView,
-                            book.Borrowing.GetLendingStatus()
-                        }
-                    )
-                );
-            }
+            var book = _bookmana.Get(_selectedIndex);
+            BookListView.Items.Add(new ListViewItem(new string[] {
+                book.Type,
+                book.Title,
+                book.Detail.TargetAge.ToString(),
+                book.Detail.Author,
+                book.Detail.OverView,
+                book.Borrowing.GetLendingStatus()
+            }));
         }
 
         private void OkButton_Click(object sender, System.EventArgs e)
