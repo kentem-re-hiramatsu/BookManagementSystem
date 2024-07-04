@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.BookListView = new System.Windows.Forms.ListView();
+            this.ColumnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ColumnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.OkButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -54,6 +54,16 @@
             this.BookListView.TabIndex = 0;
             this.BookListView.UseCompatibleStateImageBehavior = false;
             this.BookListView.View = System.Windows.Forms.View.Details;
+            // 
+            // ColumnHeader5
+            // 
+            this.ColumnHeader5.Text = "本の種類";
+            this.ColumnHeader5.Width = 94;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "タイトル";
+            this.columnHeader6.Width = 107;
             // 
             // columnHeader1
             // 
@@ -75,16 +85,6 @@
             this.columnHeader4.Text = "貸出状況";
             this.columnHeader4.Width = 86;
             // 
-            // ColumnHeader5
-            // 
-            this.ColumnHeader5.Text = "本の種類";
-            this.ColumnHeader5.Width = 94;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "タイトル";
-            this.columnHeader6.Width = 107;
-            // 
             // OkButton
             // 
             this.OkButton.Font = new System.Drawing.Font("MS UI Gothic", 10F);
@@ -94,6 +94,7 @@
             this.OkButton.TabIndex = 1;
             this.OkButton.Text = "Ok";
             this.OkButton.UseVisualStyleBackColor = true;
+            this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
             // DetailForm
             // 
@@ -104,6 +105,7 @@
             this.Controls.Add(this.BookListView);
             this.Name = "DetailForm";
             this.Text = "詳細画面";
+            this.Load += new System.EventHandler(this.DetailForm_Load);
             this.ResumeLayout(false);
 
         }
