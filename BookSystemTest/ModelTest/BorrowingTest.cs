@@ -15,20 +15,20 @@ namespace BookSystemTest.ModelTest
             Assert.IsTrue(bookBorrowing.IsLendable);
 
             //貸出していない時に返却しようとしているためエラー
-            Assert.ThrowsException<Exception>(() => bookBorrowing.SetReturnProcess());
+            Assert.ThrowsException<Exception>(() => bookBorrowing.SetReturn());
 
-            bookBorrowing.SetBorrowingProcess(DateTime.Now.AddDays(14));
+            bookBorrowing.SetBorrowing(DateTime.Now.AddDays(13));
             var lendingDate = DateTime.Now;
-            var deadlineDateTime = DateTime.Now.AddDays(14);
+            var deadlineDateTime = DateTime.Now.AddDays(13);
 
             Assert.IsFalse(bookBorrowing.IsLendable);
             Assert.AreEqual(lendingDate, bookBorrowing.BorrowingTime);
             Assert.AreEqual(deadlineDateTime, bookBorrowing.BorrowingPeriod);
 
             //貸出期限を15日以上入力するとエラー
-            Assert.ThrowsException<Exception>(() => bookBorrowing.SetBorrowingProcess(DateTime.Now.AddDays(15)));
+            Assert.ThrowsException<Exception>(() => bookBorrowing.SetBorrowing(DateTime.Now.AddDays(14)));
             //貸出中のためエラー
-            Assert.ThrowsException<Exception>(() => bookBorrowing.SetBorrowingProcess(DateTime.Now.AddDays(14)));
+            Assert.ThrowsException<Exception>(() => bookBorrowing.SetBorrowing(DateTime.Now.AddDays(13)));
         }
 
         [TestMethod]
@@ -38,22 +38,22 @@ namespace BookSystemTest.ModelTest
             var bookBorrowing = book.Borrowing;
             Assert.IsTrue(bookBorrowing.IsLendable);
 
-            bookBorrowing.SetBorrowingProcess(DateTime.Now.AddDays(14));
+            bookBorrowing.SetBorrowing(DateTime.Now.AddDays(13));
             var lendingDate = DateTime.Now;
-            var deadlineDateTime = DateTime.Now.AddDays(14);
+            var deadlineDateTime = DateTime.Now.AddDays(13);
 
             Assert.IsFalse(bookBorrowing.IsLendable);
             Assert.AreEqual(lendingDate, bookBorrowing.BorrowingTime);
             Assert.AreEqual(deadlineDateTime, bookBorrowing.BorrowingPeriod);
 
-            bookBorrowing.SetReturnProcess();
+            bookBorrowing.SetReturn();
 
             Assert.IsTrue(bookBorrowing.IsLendable);
             Assert.IsNull(bookBorrowing.BorrowingTime);
             Assert.IsNull(bookBorrowing.BorrowingPeriod);
 
             //貸出していない時に返却しようとしているためエラー
-            Assert.ThrowsException<Exception>(() => bookBorrowing.SetReturnProcess());
+            Assert.ThrowsException<Exception>(() => bookBorrowing.SetReturn());
         }
 
         [TestMethod]
@@ -64,7 +64,7 @@ namespace BookSystemTest.ModelTest
 
             Assert.AreEqual("〇", bookBorrowing.GetLendingStatusByshape());
 
-            bookBorrowing.SetBorrowingProcess(DateTime.Now.AddDays(14));
+            bookBorrowing.SetBorrowing(DateTime.Now.AddDays(13));
             Assert.AreEqual("×", bookBorrowing.GetLendingStatusByshape());
         }
 
@@ -76,7 +76,7 @@ namespace BookSystemTest.ModelTest
 
             Assert.AreEqual("貸出可", bookBorrowing.GetLendingStatus());
 
-            bookBorrowing.SetBorrowingProcess(DateTime.Now.AddDays(14));
+            bookBorrowing.SetBorrowing(DateTime.Now.AddDays(13));
             Assert.AreEqual("貸出中", bookBorrowing.GetLendingStatus());
         }
     }
