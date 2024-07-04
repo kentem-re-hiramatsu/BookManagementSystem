@@ -53,6 +53,7 @@
             this.BookListView.TabIndex = 17;
             this.BookListView.UseCompatibleStateImageBehavior = false;
             this.BookListView.View = System.Windows.Forms.View.Details;
+            this.BookListView.SelectedIndexChanged += new System.EventHandler(this.BookListView_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -71,6 +72,7 @@
             // 
             // RemoveButton
             // 
+            this.RemoveButton.Enabled = false;
             this.RemoveButton.Font = new System.Drawing.Font("MS UI Gothic", 10F);
             this.RemoveButton.Location = new System.Drawing.Point(107, 46);
             this.RemoveButton.Name = "RemoveButton";
@@ -78,6 +80,7 @@
             this.RemoveButton.TabIndex = 13;
             this.RemoveButton.Text = "削除";
             this.RemoveButton.UseVisualStyleBackColor = true;
+            this.RemoveButton.Click += new System.EventHandler(this.RemoveButton_Click);
             // 
             // BorrowingButton
             // 
@@ -86,12 +89,13 @@
             this.BorrowingButton.Name = "BorrowingButton";
             this.BorrowingButton.Size = new System.Drawing.Size(85, 30);
             this.BorrowingButton.TabIndex = 16;
-            this.BorrowingButton.Text = "予約";
+            this.BorrowingButton.Text = "貸出";
             this.BorrowingButton.UseVisualStyleBackColor = true;
             this.BorrowingButton.Click += new System.EventHandler(this.BorrowingButton_Click);
             // 
             // DetailButton
             // 
+            this.DetailButton.Enabled = false;
             this.DetailButton.Font = new System.Drawing.Font("MS UI Gothic", 10F);
             this.DetailButton.Location = new System.Drawing.Point(289, 46);
             this.DetailButton.Name = "DetailButton";
@@ -103,6 +107,7 @@
             // 
             // EditButton
             // 
+            this.EditButton.Enabled = false;
             this.EditButton.Font = new System.Drawing.Font("MS UI Gothic", 10F);
             this.EditButton.Location = new System.Drawing.Point(198, 46);
             this.EditButton.Name = "EditButton";

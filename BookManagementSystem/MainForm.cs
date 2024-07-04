@@ -47,7 +47,7 @@ namespace BookManagementSystem
 
         private void DetailButton_Click(object sender, System.EventArgs e)
         {
-            if (new DetailForm(_bookmana).ShowDialog() == DialogResult.OK)
+            if (new DetailForm(_bookmana, GetSelectedIndex()).ShowDialog() == DialogResult.OK)
             {
                 UpdateScreen();
             }

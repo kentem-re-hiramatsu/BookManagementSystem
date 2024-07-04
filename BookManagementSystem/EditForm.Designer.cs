@@ -51,6 +51,7 @@
             this.RegistrationButton.TabIndex = 25;
             this.RegistrationButton.Text = "登録";
             this.RegistrationButton.UseVisualStyleBackColor = true;
+            this.RegistrationButton.Click += new System.EventHandler(this.RegistrationButton_Click);
             // 
             // CancelButton
             // 
@@ -60,6 +61,7 @@
             this.CancelButton.TabIndex = 24;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // AgeNumericUpDown
             // 
@@ -72,6 +74,7 @@
             // 
             // BookComboBox
             // 
+            this.BookComboBox.Enabled = false;
             this.BookComboBox.FormattingEnabled = true;
             this.BookComboBox.Location = new System.Drawing.Point(102, 31);
             this.BookComboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -149,6 +152,7 @@
             this.AuthorTextBox.Name = "AuthorTextBox";
             this.AuthorTextBox.Size = new System.Drawing.Size(140, 19);
             this.AuthorTextBox.TabIndex = 15;
+            this.AuthorTextBox.TextChanged += new System.EventHandler(this.TitleTextBox_TextChanged);
             // 
             // TitleTextBox
             // 
@@ -157,6 +161,7 @@
             this.TitleTextBox.Name = "TitleTextBox";
             this.TitleTextBox.Size = new System.Drawing.Size(140, 19);
             this.TitleTextBox.TabIndex = 14;
+            this.TitleTextBox.TextChanged += new System.EventHandler(this.TitleTextBox_TextChanged);
             // 
             // EditForm
             // 
@@ -177,6 +182,7 @@
             this.Controls.Add(this.TitleTextBox);
             this.Name = "EditForm";
             this.Text = "編集画面";
+            this.Load += new System.EventHandler(this.EditForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.AgeNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
