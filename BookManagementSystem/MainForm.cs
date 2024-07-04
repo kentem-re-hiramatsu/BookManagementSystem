@@ -63,7 +63,9 @@ namespace BookManagementSystem
 
         private void BorrowingButton_Click(object sender, System.EventArgs e)
         {
-            if (new BorrowingForm(_bookmana).ShowDialog() == DialogResult.OK)
+            var user = _userMana.Get(UserComboBox.SelectedIndex);
+
+            if (new BorrowingForm(_bookmana, user).ShowDialog() == DialogResult.OK)
             {
                 UpdateScreen();
             }

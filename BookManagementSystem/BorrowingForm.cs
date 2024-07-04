@@ -1,5 +1,6 @@
 ﻿using BookSystem.Cores;
 using BookSystem.Cores.Manager;
+using BookSystem.Cores.Model;
 using System;
 using System.Windows.Forms;
 
@@ -8,11 +9,13 @@ namespace BookManagementSystem
     public partial class BorrowingForm : Form
     {
         private BookSystemManager _bookmana;
+        private User _user;
 
-        public BorrowingForm(BookSystemManager bookMana)
+        public BorrowingForm(BookSystemManager bookMana, User user)
         {
             InitializeComponent();
             _bookmana = bookMana;
+            _user = user;
         }
 
         private void BorrowingForm_Load(object sender, EventArgs e)
@@ -49,7 +52,7 @@ namespace BookManagementSystem
                 if (BookListView.SelectedItems.Count > 0)
                 {
                     //貸出処理
-                    _bookmana.Get(GetSelectedIndex()).Borrowing.SetBorrowing(ReturnDateTimePicker.Value);
+                    _bookmana.BorrowingProcess(GetSelectedIndex(), ReturnDateTimePicker.Value, _user);
                     UpdateScreen();
                 }
                 ButtonEnableChenged();
@@ -67,7 +70,7 @@ namespace BookManagementSystem
                 if (BookListView.SelectedItems.Count > 0)
                 {
                     //返却処理
-                    _bookmana.Get(GetSelectedIndex()).Borrowing.SetReturn();
+                    _bookmana.ReturnProcess(GetSelectedIndex());
                     UpdateScreen();
                 }
                 ButtonEnableChenged();
