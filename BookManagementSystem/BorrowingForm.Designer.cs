@@ -38,6 +38,8 @@
             this.ReturnDate = new System.Windows.Forms.Label();
             this.CloseButton = new System.Windows.Forms.Button();
             this.UserLabel = new System.Windows.Forms.Label();
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // BookListView
@@ -45,12 +47,14 @@
             this.BookListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
-            this.columnHeader3});
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5});
             this.BookListView.FullRowSelect = true;
             this.BookListView.HideSelection = false;
             this.BookListView.Location = new System.Drawing.Point(12, 36);
             this.BookListView.Name = "BookListView";
-            this.BookListView.Size = new System.Drawing.Size(449, 304);
+            this.BookListView.Size = new System.Drawing.Size(575, 304);
             this.BookListView.TabIndex = 18;
             this.BookListView.UseCompatibleStateImageBehavior = false;
             this.BookListView.View = System.Windows.Forms.View.Details;
@@ -75,7 +79,7 @@
             // 
             this.ReturnButton.Enabled = false;
             this.ReturnButton.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.ReturnButton.Location = new System.Drawing.Point(467, 238);
+            this.ReturnButton.Location = new System.Drawing.Point(607, 238);
             this.ReturnButton.Name = "ReturnButton";
             this.ReturnButton.Size = new System.Drawing.Size(113, 36);
             this.ReturnButton.TabIndex = 19;
@@ -87,7 +91,7 @@
             // 
             this.LendButton.Enabled = false;
             this.LendButton.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.LendButton.Location = new System.Drawing.Point(467, 196);
+            this.LendButton.Location = new System.Drawing.Point(607, 196);
             this.LendButton.Name = "LendButton";
             this.LendButton.Size = new System.Drawing.Size(113, 36);
             this.LendButton.TabIndex = 20;
@@ -97,7 +101,7 @@
             // 
             // ReturnDateTimePicker
             // 
-            this.ReturnDateTimePicker.Location = new System.Drawing.Point(467, 171);
+            this.ReturnDateTimePicker.Location = new System.Drawing.Point(607, 171);
             this.ReturnDateTimePicker.Name = "ReturnDateTimePicker";
             this.ReturnDateTimePicker.Size = new System.Drawing.Size(113, 19);
             this.ReturnDateTimePicker.TabIndex = 21;
@@ -106,7 +110,7 @@
             // 
             this.ReturnDate.AutoSize = true;
             this.ReturnDate.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.ReturnDate.Location = new System.Drawing.Point(464, 154);
+            this.ReturnDate.Location = new System.Drawing.Point(604, 154);
             this.ReturnDate.Name = "ReturnDate";
             this.ReturnDate.Size = new System.Drawing.Size(63, 14);
             this.ReturnDate.TabIndex = 22;
@@ -115,7 +119,7 @@
             // CloseButton
             // 
             this.CloseButton.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.CloseButton.Location = new System.Drawing.Point(467, 304);
+            this.CloseButton.Location = new System.Drawing.Point(607, 304);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(113, 36);
             this.CloseButton.TabIndex = 23;
@@ -132,11 +136,19 @@
             this.UserLabel.TabIndex = 24;
             this.UserLabel.Text = "さん、こんにちは";
             // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "貸出先";
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "年齢";
+            // 
             // BorrowingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(611, 372);
+            this.ClientSize = new System.Drawing.Size(743, 372);
             this.Controls.Add(this.UserLabel);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.ReturnDate);
@@ -164,6 +176,8 @@
         private System.Windows.Forms.Label ReturnDate;
         private System.Windows.Forms.Button CloseButton;
         private System.Windows.Forms.Label UserLabel;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
     }
 }
 
