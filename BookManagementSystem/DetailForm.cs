@@ -34,10 +34,13 @@ namespace BookManagementSystem
 
             var user = book.Borrowing.User;
 
-            if (book.Borrowing.User.IsAdmin)
+            if (book.Borrowing.User == null)
+                return;
+
+            if (_user.IsAdmin)
             {
                 UserType admin;
-                if (user.IsAdmin)
+                if (book.Borrowing.User.IsAdmin)
                     admin = UserType.管理者;
                 else
                     admin = UserType.一般;
