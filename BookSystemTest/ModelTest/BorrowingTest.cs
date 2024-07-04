@@ -78,6 +78,11 @@ namespace BookSystemTest.ModelTest
 
             bookBorrowing.SetBorrowing(DateTime.Now.AddDays(13));
             Assert.AreEqual("貸出中", bookBorrowing.GetLendingStatus());
+
+            book.Borrowing.SetReturn();
+
+            bookBorrowing.SetBorrowing(DateTime.Now.AddDays(-2));
+            Assert.AreEqual("貸出中(2日の期限超過)", bookBorrowing.GetLendingStatus());
         }
     }
 }
