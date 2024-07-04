@@ -1,4 +1,6 @@
-﻿using BookSystem.Cores.Manager;
+﻿using BookSystem.Cores.Enum;
+using BookSystem.Cores.Manager;
+using BookSystem.Cores.Model;
 using System.Windows.Forms;
 
 namespace BookManagementSystem
@@ -6,6 +8,8 @@ namespace BookManagementSystem
     public partial class MainForm : Form
     {
         private BookSystemManager _bookmana = new BookSystemManager();
+        private UserManager _userMana = new UserManager();
+
         public MainForm()
         {
             InitializeComponent();
@@ -86,6 +90,21 @@ namespace BookManagementSystem
         private void BookListView_SelectedIndexChanged(object sender, System.EventArgs e)
         {
             ButtonEnableChanged();
+        }
+
+        private void UserRegisterButton_Click(object sender, System.EventArgs e)
+        {
+            var name = UserNameTextBox.Text;
+            var age = (int)UserAgeUpDown.Value;
+            var admin = (UserType)AdminComboBox.SelectedItem == UserType.管理者;
+
+            _userMana.Add(new User(name, age, admin));
+        }
+
+        private void MainForm_Load(object sender, System.EventArgs e)
+        {
+            AdminComboBox.Items.Add(UserType.一般);
+            AdminComboBox.Items.Add(UserType.管理者);
         }
     }
 }
