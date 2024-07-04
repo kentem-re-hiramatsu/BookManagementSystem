@@ -54,7 +54,7 @@ namespace BookManagementSystem
 
         private void DetailButton_Click(object sender, System.EventArgs e)
         {
-            if (new DetailForm(_bookmana, GetSelectedIndex()).ShowDialog() == DialogResult.OK)
+            if (new DetailForm(_bookmana, GetSelectedIndex(), GetSelectedUser()).ShowDialog() == DialogResult.OK)
             {
                 UpdateScreen();
             }
@@ -63,9 +63,7 @@ namespace BookManagementSystem
 
         private void BorrowingButton_Click(object sender, System.EventArgs e)
         {
-            var user = _userMana.Get(UserComboBox.SelectedIndex);
-
-            if (new BorrowingForm(_bookmana, user).ShowDialog() == DialogResult.OK)
+            if (new BorrowingForm(_bookmana, GetSelectedUser()).ShowDialog() == DialogResult.OK)
             {
                 UpdateScreen();
             }
@@ -109,6 +107,11 @@ namespace BookManagementSystem
             {
                 UserComboBox.Items.Add(user.Name);
             }
+        }
+
+        private User GetSelectedUser()
+        {
+            return _userMana.Get(UserComboBox.SelectedIndex);
         }
 
         private void MainForm_Load(object sender, System.EventArgs e)
