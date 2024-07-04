@@ -20,6 +20,9 @@ namespace BookManagementSystem
             }
         }
 
+        /// <summary>
+        /// リストビューで選択されている本のインデックスを取得
+        /// </summary>
         private int GetSelectedIndex()
         {
             if (BookListView.SelectedItems.Count > 0)
@@ -70,6 +73,9 @@ namespace BookManagementSystem
             ButtonEnableChanged();
         }
 
+        /// <summary>
+        /// 削除ボタン、編集ボタン、詳細ボタンの活性状態の管理
+        /// </summary>
         private void ButtonEnableChanged()
         {
             RemoveButton.Enabled = BookListView.SelectedItems.Count > 0;

@@ -47,6 +47,7 @@ namespace BookManagementSystem
             {
                 if (BookListView.SelectedItems.Count > 0)
                 {
+                    //貸出処理
                     _bookmana.Get(GetSelectedIndex()).Borrowing.SetBorrowing(ReturnDateTimePicker.Value);
                     UpdateScreen();
                 }
@@ -64,6 +65,7 @@ namespace BookManagementSystem
             {
                 if (BookListView.SelectedItems.Count > 0)
                 {
+                    //返却処理
                     _bookmana.Get(GetSelectedIndex()).Borrowing.SetReturn();
                     UpdateScreen();
                 }

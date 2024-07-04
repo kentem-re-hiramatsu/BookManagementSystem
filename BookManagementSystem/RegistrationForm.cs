@@ -15,8 +15,10 @@ namespace BookManagementSystem
             InitializeComponent();
             _bookmana = bookMana;
         }
+
         private void RegistrationForm_Load(object sender, EventArgs e)
         {
+            //ComBoxの初期設定
             BookComboBox.Items.Add(BookType.絵本);
             BookComboBox.Items.Add(BookType.漫画);
             BookComboBox.Items.Add(BookType.小説);
@@ -37,6 +39,7 @@ namespace BookManagementSystem
                 var author = AuthorTextBox.Text;
                 var overview = OverviewTextBox.Text;
 
+                //ComboBoxで選択されているTagから取得したEnumで本のインスタンス取得
                 var book = _bookmana.GetBookInstance((BookType)BookComboBox.SelectedItem, title, new BookDetail(age, author, overview));
 
                 _bookmana.Add(book);

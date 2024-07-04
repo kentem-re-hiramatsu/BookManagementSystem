@@ -16,10 +16,11 @@ namespace BookManagementSystem
             _selectedIndex = selectedIndex;
         }
 
-        private void EditForm_Load(object sender, System.EventArgs e)
+        private void EditForm_Load(object sender, EventArgs e)
         {
             var book = _bookmana.Get(_selectedIndex);
 
+            //初期設定
             BookComboBox.Items.Add(book.Type);
             BookComboBox.SelectedItem = book.Type;
             TitleTextBox.Text = book.Title;
@@ -28,7 +29,7 @@ namespace BookManagementSystem
             OverviewTextBox.Text = book.Detail.OverView;
         }
 
-        private void RegistrationButton_Click(object sender, System.EventArgs e)
+        private void RegistrationButton_Click(object sender, EventArgs e)
         {
             try
             {
@@ -46,7 +47,7 @@ namespace BookManagementSystem
             }
         }
 
-        private void CancelButton_Click(object sender, System.EventArgs e)
+        private void CancelButton_Click(object sender, EventArgs e)
         {
             Close();
         }
@@ -55,7 +56,7 @@ namespace BookManagementSystem
             RegistrationButton.Enabled = TitleTextBox.Text.Length > 0 && AuthorTextBox.Text.Length > 0;
         }
 
-        private void TitleTextBox_TextChanged(object sender, System.EventArgs e)
+        private void TitleTextBox_TextChanged(object sender, EventArgs e)
         {
             OkButtonEnableChange();
         }

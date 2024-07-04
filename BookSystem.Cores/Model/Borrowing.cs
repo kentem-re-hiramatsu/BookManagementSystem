@@ -31,6 +31,9 @@ namespace BookSystem.Cores.Model
             }
         }
 
+        /// <summary>
+        /// 返却処理
+        /// </summary>
         public void SetReturn()
         {
             if (!IsLendable)
@@ -45,6 +48,9 @@ namespace BookSystem.Cores.Model
             }
         }
 
+        /// <summary>
+        /// 貸出状況を〇×！で返す
+        /// </summary>
         public string GetLendingStatusByshape()
         {
             if (IsLendable)
@@ -55,6 +61,9 @@ namespace BookSystem.Cores.Model
                 return "×";
         }
 
+        /// <summary>
+        /// 貸出状況を返す
+        /// </summary>
         public string GetLendingStatus()
         {
             if (IsLendable)
