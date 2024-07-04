@@ -54,6 +54,7 @@
     <Compile Include="ModelTest\ComicBookTest.cs" />
     <Compile Include="ModelTest\NobelBookTest.cs" />
     <Compile Include="ModelTest\PictureBookTest.cs" />
+    <Compile Include="ModelTest\UserInfoTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -50,6 +50,7 @@
     <Compile Include="Model\ComicBook.cs" />
     <Compile Include="Model\NovelBook.cs" />
     <Compile Include="Model\PictureBook.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
