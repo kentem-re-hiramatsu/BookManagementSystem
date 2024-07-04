@@ -37,6 +37,15 @@
             this.DetailButton = new System.Windows.Forms.Button();
             this.EditButton = new System.Windows.Forms.Button();
             this.RegistrationButton = new System.Windows.Forms.Button();
+            this.UserComboBox = new System.Windows.Forms.ComboBox();
+            this.UserNameTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label = new System.Windows.Forms.Label();
+            this.UserRegisterButton = new System.Windows.Forms.Button();
+            this.UserAgeUpDown = new System.Windows.Forms.NumericUpDown();
+            this.AdminComboBox = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.UserAgeUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // BookListView
@@ -128,11 +137,89 @@
             this.RegistrationButton.UseVisualStyleBackColor = true;
             this.RegistrationButton.Click += new System.EventHandler(this.RegistrationButton_Click);
             // 
+            // UserComboBox
+            // 
+            this.UserComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.UserComboBox.FormattingEnabled = true;
+            this.UserComboBox.Location = new System.Drawing.Point(471, 53);
+            this.UserComboBox.Name = "UserComboBox";
+            this.UserComboBox.Size = new System.Drawing.Size(100, 20);
+            this.UserComboBox.TabIndex = 18;
+            // 
+            // UserNameTextBox
+            // 
+            this.UserNameTextBox.Location = new System.Drawing.Point(471, 255);
+            this.UserNameTextBox.Name = "UserNameTextBox";
+            this.UserNameTextBox.Size = new System.Drawing.Size(100, 19);
+            this.UserNameTextBox.TabIndex = 19;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(469, 240);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 12);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "名前";
+            // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Location = new System.Drawing.Point(469, 286);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(29, 12);
+            this.label.TabIndex = 22;
+            this.label.Text = "年齢";
+            // 
+            // UserRegisterButton
+            // 
+            this.UserRegisterButton.Location = new System.Drawing.Point(471, 382);
+            this.UserRegisterButton.Name = "UserRegisterButton";
+            this.UserRegisterButton.Size = new System.Drawing.Size(100, 23);
+            this.UserRegisterButton.TabIndex = 23;
+            this.UserRegisterButton.Text = "登録";
+            this.UserRegisterButton.UseVisualStyleBackColor = true;
+            this.UserRegisterButton.Click += new System.EventHandler(this.UserRegisterButton_Click);
+            // 
+            // UserAgeUpDown
+            // 
+            this.UserAgeUpDown.Location = new System.Drawing.Point(471, 301);
+            this.UserAgeUpDown.Name = "UserAgeUpDown";
+            this.UserAgeUpDown.Size = new System.Drawing.Size(100, 19);
+            this.UserAgeUpDown.TabIndex = 24;
+            this.UserAgeUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // AdminComboBox
+            // 
+            this.AdminComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.AdminComboBox.FormattingEnabled = true;
+            this.AdminComboBox.Location = new System.Drawing.Point(471, 341);
+            this.AdminComboBox.Name = "AdminComboBox";
+            this.AdminComboBox.Size = new System.Drawing.Size(100, 20);
+            this.AdminComboBox.TabIndex = 25;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(471, 326);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(29, 12);
+            this.label2.TabIndex = 26;
+            this.label2.Text = "権限";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(480, 450);
+            this.ClientSize = new System.Drawing.Size(596, 450);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.AdminComboBox);
+            this.Controls.Add(this.UserAgeUpDown);
+            this.Controls.Add(this.UserRegisterButton);
+            this.Controls.Add(this.label);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.UserNameTextBox);
+            this.Controls.Add(this.UserComboBox);
             this.Controls.Add(this.BookListView);
             this.Controls.Add(this.RemoveButton);
             this.Controls.Add(this.BorrowingButton);
@@ -141,7 +228,10 @@
             this.Controls.Add(this.RegistrationButton);
             this.Name = "MainForm";
             this.Text = "メイン画面";
+            this.Load += new System.EventHandler(this.MainForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.UserAgeUpDown)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -156,6 +246,14 @@
         private System.Windows.Forms.Button DetailButton;
         private System.Windows.Forms.Button EditButton;
         private System.Windows.Forms.Button RegistrationButton;
+        private System.Windows.Forms.ComboBox UserComboBox;
+        private System.Windows.Forms.TextBox UserNameTextBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label;
+        private System.Windows.Forms.Button UserRegisterButton;
+        private System.Windows.Forms.NumericUpDown UserAgeUpDown;
+        private System.Windows.Forms.ComboBox AdminComboBox;
+        private System.Windows.Forms.Label label2;
     }
 }
 
