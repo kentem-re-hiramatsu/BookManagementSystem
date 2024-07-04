@@ -7,6 +7,9 @@ namespace BookSystemTest.ModelTest
     [TestClass]
     public class BorrowingTest
     {
+        /// <summary>
+        /// 貸出処理のテスト
+        /// </summary>
         [TestMethod]
         public void SetBorrowingTest()
         {
@@ -31,6 +34,9 @@ namespace BookSystemTest.ModelTest
             Assert.ThrowsException<Exception>(() => bookBorrowing.SetBorrowing(DateTime.Now.AddDays(13)));
         }
 
+        /// <summary>
+        /// 返却処理のテスト
+        /// </summary>
         [TestMethod]
         public void SetReturnTest()
         {
@@ -56,6 +62,9 @@ namespace BookSystemTest.ModelTest
             Assert.ThrowsException<Exception>(() => bookBorrowing.SetReturn());
         }
 
+        /// <summary>
+        /// 貸出状態〇×！で表すテスト
+        /// </summary>
         [TestMethod]
         public void GetLendingStatusByshapeTest()
         {
@@ -68,10 +77,14 @@ namespace BookSystemTest.ModelTest
             Assert.AreEqual("×", bookBorrowing.GetLendingStatusByshape());
             book.Borrowing.SetReturn();
 
+            //返却期限が超過しているため×！
             bookBorrowing.SetBorrowing(DateTime.Now.AddDays(-1));
             Assert.AreEqual("×!", bookBorrowing.GetLendingStatusByshape());
         }
 
+        /// <summary>
+        /// 貸出状態を表すテスト
+        /// </summary>
         [TestMethod]
         public void GetLendingStatusTest()
         {
