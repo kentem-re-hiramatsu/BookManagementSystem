@@ -74,6 +74,7 @@
             // 
             // BookComboBox
             // 
+            this.BookComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.BookComboBox.Enabled = false;
             this.BookComboBox.FormattingEnabled = true;
             this.BookComboBox.Location = new System.Drawing.Point(102, 31);
