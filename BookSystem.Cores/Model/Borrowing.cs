@@ -59,6 +59,11 @@ namespace BookSystem.Cores.Model
         {
             if (IsLendable)
                 return "貸出可";
+            else if (DateTime.Now > DeadlineDateTime)
+            {
+                TimeSpan overDateTime = (TimeSpan)(DateTime.Now - DeadlineDateTime);
+                return $"貸出中({overDateTime.TotalDays.ToString("F0")}日の期限超過)";
+            }
             else
                 return "貸出中";
         }
