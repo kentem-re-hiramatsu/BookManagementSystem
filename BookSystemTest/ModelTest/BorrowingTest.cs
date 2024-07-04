@@ -23,7 +23,7 @@ namespace BookSystemTest.ModelTest
 
             Assert.IsFalse(bookBorrowing.IsLendable);
             Assert.AreEqual(lendingDate, bookBorrowing.BorrowingTime);
-            Assert.AreEqual(deadlineDateTime, bookBorrowing.BorrowingPeriod);
+            Assert.AreEqual(deadlineDateTime, bookBorrowing.DeadlineDateTime);
 
             //貸出期限を15日以上入力するとエラー
             Assert.ThrowsException<Exception>(() => bookBorrowing.SetBorrowing(DateTime.Now.AddDays(14)));
@@ -44,13 +44,13 @@ namespace BookSystemTest.ModelTest
 
             Assert.IsFalse(bookBorrowing.IsLendable);
             Assert.AreEqual(lendingDate, bookBorrowing.BorrowingTime);
-            Assert.AreEqual(deadlineDateTime, bookBorrowing.BorrowingPeriod);
+            Assert.AreEqual(deadlineDateTime, bookBorrowing.DeadlineDateTime);
 
             bookBorrowing.SetReturn();
 
             Assert.IsTrue(bookBorrowing.IsLendable);
             Assert.IsNull(bookBorrowing.BorrowingTime);
-            Assert.IsNull(bookBorrowing.BorrowingPeriod);
+            Assert.IsNull(bookBorrowing.DeadlineDateTime);
 
             //貸出していない時に返却しようとしているためエラー
             Assert.ThrowsException<Exception>(() => bookBorrowing.SetReturn());

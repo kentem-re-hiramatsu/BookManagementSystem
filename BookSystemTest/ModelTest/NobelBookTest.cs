@@ -18,7 +18,7 @@ namespace BookSystemTest.ModelTest
             Assert.AreEqual("昔話", Nobel.Detail.OverView);
             Assert.AreEqual(true, Nobel.Borrowing.IsLendable);
             Assert.IsNull(Nobel.Borrowing.BorrowingTime);
-            Assert.IsNull(Nobel.Borrowing.BorrowingPeriod);
+            Assert.IsNull(Nobel.Borrowing.DeadlineDateTime);
         }
     }
 }

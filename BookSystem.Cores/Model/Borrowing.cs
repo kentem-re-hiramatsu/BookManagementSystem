@@ -6,7 +6,7 @@ namespace BookSystem.Cores.Model
     {
         public bool IsLendable { get; set; }
         public DateTime? BorrowingTime { get; set; }
-        public DateTime? BorrowingPeriod { get; set; }
+        public DateTime? DeadlineDateTime { get; set; }
 
         public Borrowing()
         {
@@ -19,7 +19,7 @@ namespace BookSystem.Cores.Model
             {
                 IsLendable = false;
                 BorrowingTime = DateTime.Now;
-                BorrowingPeriod = deadlineDateTime;
+                DeadlineDateTime = deadlineDateTime;
             }
             else if (deadlineDateTime >= DateTime.Now.AddDays(14))
             {
@@ -37,7 +37,7 @@ namespace BookSystem.Cores.Model
             {
                 IsLendable = true;
                 BorrowingTime = null;
-                BorrowingPeriod = null;
+                DeadlineDateTime = null;
             }
             else
             {
@@ -49,7 +49,7 @@ namespace BookSystem.Cores.Model
         {
             if (IsLendable)
                 return "〇";
-            else if (DateTime.Now > BorrowingPeriod)
+            else if (DateTime.Now > DeadlineDateTime)
                 return "×!";
             else
                 return "×";
