@@ -36,7 +36,7 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.BookListView = new System.Windows.Forms.ListView();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.UserInfoListView = new System.Windows.Forms.ListView();
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -100,19 +100,19 @@
             this.BookListView.UseCompatibleStateImageBehavior = false;
             this.BookListView.View = System.Windows.Forms.View.Details;
             // 
-            // listView1
+            // UserInfoListView
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.UserInfoListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader7,
             this.columnHeader8,
             this.columnHeader9});
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(14, 127);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(636, 89);
-            this.listView1.TabIndex = 2;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.UserInfoListView.HideSelection = false;
+            this.UserInfoListView.Location = new System.Drawing.Point(14, 127);
+            this.UserInfoListView.Name = "UserInfoListView";
+            this.UserInfoListView.Size = new System.Drawing.Size(636, 89);
+            this.UserInfoListView.TabIndex = 2;
+            this.UserInfoListView.UseCompatibleStateImageBehavior = false;
+            this.UserInfoListView.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader7
             // 
@@ -134,7 +134,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(662, 280);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.UserInfoListView);
             this.Controls.Add(this.OkButton);
             this.Controls.Add(this.BookListView);
             this.Name = "DetailForm";
@@ -153,7 +153,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ListView BookListView;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView UserInfoListView;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader9;
