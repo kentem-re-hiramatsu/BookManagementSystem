@@ -1,5 +1,6 @@
 ﻿using BookSystem.Cores;
 using BookSystem.Cores.Manager;
+using BookSystem.Cores.Model;
 using System;
 using System.Windows.Forms;
 
@@ -20,6 +21,9 @@ namespace BookManagementSystem
         private void EditForm_Load(object sender, EventArgs e)
         {
             var book = _bookmana.Get(_selectedIndex);
+
+            if (book is PictureBook)
+                AgeNumericUpDown.Enabled = false;
 
             //初期設定
             BookComboBox.Items.Add(book.Type);

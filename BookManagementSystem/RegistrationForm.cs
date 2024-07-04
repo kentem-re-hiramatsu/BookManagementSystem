@@ -66,6 +66,9 @@ namespace BookManagementSystem
         private void BookComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             AgeNumericUpDown.Enabled = (BookType)BookComboBox.SelectedItem != BookType.絵本;
+
+            if ((BookType)BookComboBox.SelectedItem == BookType.絵本)
+                AgeNumericUpDown.Value = 0;
         }
     }
 }
