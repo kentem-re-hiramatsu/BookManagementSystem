@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MangerTest\BookSystemManagerTest.cs" />
+    <Compile Include="MangerTest\UserMangerTest.cs" />
     <Compile Include="ModelTest\BorrowingTest.cs" />
     <Compile Include="ModelTest\ComicBookTest.cs" />
     <Compile Include="ModelTest\NobelBookTest.cs" />
