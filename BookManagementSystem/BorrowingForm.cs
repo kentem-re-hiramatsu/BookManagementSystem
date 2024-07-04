@@ -21,6 +21,7 @@ namespace BookManagementSystem
         private void BorrowingForm_Load(object sender, EventArgs e)
         {
             ReturnDateTimePicker.Value = DateTime.Now;
+            UserLabel.Text = $"{_user.Name}さん、こんにちは";
             UpdateScreen();
         }
 
