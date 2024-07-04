@@ -64,7 +64,7 @@ namespace BookSystemTest.ModelTest
 
             Assert.AreEqual("〇", bookBorrowing.GetLendingStatusByshape());
 
-            bookBorrowing.SetBorrowing(DateTime.Now.AddDays(13));
+            bookBorrowing.SetBorrowing(DateTime.Now.AddDays(0));
             Assert.AreEqual("×", bookBorrowing.GetLendingStatusByshape());
             book.Borrowing.SetReturn();
 
@@ -80,13 +80,13 @@ namespace BookSystemTest.ModelTest
 
             Assert.AreEqual("貸出可", bookBorrowing.GetLendingStatus());
 
-            bookBorrowing.SetBorrowing(DateTime.Now.AddDays(13));
+            bookBorrowing.SetBorrowing(DateTime.Now.AddDays(0));
             Assert.AreEqual("貸出中", bookBorrowing.GetLendingStatus());
 
             book.Borrowing.SetReturn();
 
-            bookBorrowing.SetBorrowing(DateTime.Now.AddDays(-2));
-            Assert.AreEqual("貸出中(2日の期限超過)", bookBorrowing.GetLendingStatus());
+            bookBorrowing.SetBorrowing(DateTime.Now.AddDays(-1));
+            Assert.AreEqual("貸出中(1日の期限超過)", bookBorrowing.GetLendingStatus());
         }
     }
 }
