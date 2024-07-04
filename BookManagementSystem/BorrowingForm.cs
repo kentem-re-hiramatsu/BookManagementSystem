@@ -17,7 +17,6 @@ namespace BookManagementSystem
         private void BorrowingForm_Load(object sender, EventArgs e)
         {
             ReturnDateTimePicker.Value = DateTime.Now;
-            ReturnDateTimePicker.MinDate = DateTime.Now;
             UpdateScreen();
         }
 
