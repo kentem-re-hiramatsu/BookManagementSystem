@@ -1,4 +1,5 @@
-﻿using BookSystem.Cores.Model;
+﻿using BookSystem.Cores.Manager;
+using BookSystem.Cores.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace BookSystemTest.MangerTest
