@@ -8,7 +8,7 @@ namespace BookSystemTest.ModelTest
     public class BorrowingTest
     {
         [TestMethod]
-        public void SetBorrowingProcess()
+        public void SetBorrowingTest()
         {
             var book = new ComicBook("ワンピース", new BookDetail(10, "尾田", ""));
             var bookBorrowing = book.Borrowing;
@@ -32,7 +32,7 @@ namespace BookSystemTest.ModelTest
         }
 
         [TestMethod]
-        public void SetReturnProcess()
+        public void SetReturnTest()
         {
             var book = new ComicBook("ワンピース", new BookDetail(10, "尾田", ""));
             var bookBorrowing = book.Borrowing;
@@ -73,7 +73,7 @@ namespace BookSystemTest.ModelTest
         }
 
         [TestMethod]
-        public void GetLendingStatus()
+        public void GetLendingStatusTest()
         {
             var book = new ComicBook("ワンピース", new BookDetail(10, "尾田", ""));
             var bookBorrowing = book.Borrowing;
