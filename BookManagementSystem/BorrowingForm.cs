@@ -30,7 +30,13 @@ namespace BookManagementSystem
             BookListView.Items.Clear();
             foreach (var book in _bookmana.BookOrderList)
             {
-                BookListView.Items.Add(new ListViewItem(new string[] { book.Title, book.Type, book.Borrowing.GetLendingStatusByshape() }));
+                BookListView.Items.Add(new ListViewItem(new string[] {
+                    book.Title,
+                    book.Type,
+                    book.Borrowing.GetLendingStatusByshape(),
+                    book.Borrowing.User.Name,
+                    book.Borrowing.User.Age.ToString()
+                }));
             }
         }
 
