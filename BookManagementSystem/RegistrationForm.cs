@@ -1,4 +1,5 @@
-﻿using BookSystem.Cores.Enum;
+﻿using BookSystem.Cores;
+using BookSystem.Cores.Enum;
 using BookSystem.Cores.Manager;
 using BookSystem.Cores.Model;
 using System;
@@ -48,7 +49,7 @@ namespace BookManagementSystem
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, Consts.ERROR_MESSAGE, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

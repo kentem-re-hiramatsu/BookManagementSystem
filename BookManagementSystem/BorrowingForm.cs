@@ -1,4 +1,5 @@
-﻿using BookSystem.Cores.Manager;
+﻿using BookSystem.Cores;
+using BookSystem.Cores.Manager;
 using System;
 using System.Windows.Forms;
 
@@ -55,7 +56,7 @@ namespace BookManagementSystem
             }
             catch (Exception m)
             {
-                MessageBox.Show(m.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(m.Message, Consts.ERROR_MESSAGE, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -73,7 +74,7 @@ namespace BookManagementSystem
             }
             catch (Exception m)
             {
-                MessageBox.Show(m.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(m.Message, Consts.ERROR_MESSAGE, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

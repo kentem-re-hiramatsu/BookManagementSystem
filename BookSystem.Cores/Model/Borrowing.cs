@@ -23,11 +23,11 @@ namespace BookSystem.Cores.Model
             }
             else if (deadlineDateTime >= DateTime.Now.AddDays(14))
             {
-                throw new Exception("貸出期限は２週間以内です。");
+                throw new Exception(Consts.OVER_LOAN_PEROD_ERROR_MESSAGE);
             }
             else
             {
-                throw new Exception("貸出されているため貸し出すことができません。");
+                throw new Exception(Consts.ON_LOAN_ERROR_MESSAGE);
             }
         }
 
@@ -44,7 +44,7 @@ namespace BookSystem.Cores.Model
             }
             else
             {
-                throw new Exception("貸出がされていません。");
+                throw new Exception(Consts.NOT_LOAN_ERROR_MESSAGE);
             }
         }
 
@@ -54,11 +54,11 @@ namespace BookSystem.Cores.Model
         public string GetLendingStatusByshape()
         {
             if (IsLendable)
-                return "〇";
+                return Consts.LOANABLE_CIRCLE_MESSAGE;
             else if (DateTime.Now.Date > DeadlineDateTime.Value.Date)
-                return "×!";
+                return Consts.OVER_LOAN_PEROD_CIRCLE_MESSAGE;
             else
-                return "×";
+                return Consts.ON_LOAN_CROSS_MESSAGE;
         }
 
         /// <summary>
@@ -67,14 +67,14 @@ namespace BookSystem.Cores.Model
         public string GetLendingStatus()
         {
             if (IsLendable)
-                return "貸出可";
+                return Consts.LOANABLE_MESSAGE;
             else if (DateTime.Now.Date > DeadlineDateTime.Value.Date)
             {
                 TimeSpan overDateTime = (TimeSpan)(DateTime.Now - DeadlineDateTime);
                 return $"貸出中({overDateTime.TotalDays.ToString("F0")}日の期限超過)";
             }
             else
-                return "貸出中";
+                return Consts.ON_LOAN_MESSAGE;
         }
     }
 }
