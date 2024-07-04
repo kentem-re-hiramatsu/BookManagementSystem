@@ -8,19 +8,19 @@ namespace BookManagementSystem
 {
     public partial class EditForm : Form
     {
-        private BookSystemManager _bookmana;
+        private BookSystemManager _bookMana;
         private int _selectedIndex;
 
         public EditForm(BookSystemManager bookMana, int selectedIndex)
         {
             InitializeComponent();
-            _bookmana = bookMana;
+            _bookMana = bookMana;
             _selectedIndex = selectedIndex;
         }
 
         private void EditForm_Load(object sender, EventArgs e)
         {
-            var book = _bookmana.Get(_selectedIndex);
+            var book = _bookMana.Get(_selectedIndex);
 
             if (book is PictureBook)
                 AgeNumericUpDown.Enabled = false;
@@ -43,7 +43,7 @@ namespace BookManagementSystem
                 var author = AuthorTextBox.Text;
                 var overview = OverviewTextBox.Text;
 
-                _bookmana.Edit(_selectedIndex, title, age, author, overview);
+                _bookMana.Edit(_selectedIndex, title, age, author, overview);
                 DialogResult = DialogResult.OK;
             }
             catch (Exception ex)

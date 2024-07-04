@@ -7,21 +7,21 @@ namespace BookManagementSystem
 {
     public partial class DetailForm : Form
     {
-        private BookSystemManager _bookmana;
+        private BookSystemManager _bookMana;
         private int _selectedIndex;
         private User _user;
 
         public DetailForm(BookSystemManager bookMana, int selectedIndex, User user)
         {
             InitializeComponent();
-            _bookmana = bookMana;
+            _bookMana = bookMana;
             _selectedIndex = selectedIndex;
             _user = user;
         }
 
         private void DetailForm_Load(object sender, System.EventArgs e)
         {
-            var book = _bookmana.Get(_selectedIndex);
+            var book = _bookMana.Get(_selectedIndex);
 
             BookListView.Items.Add(new ListViewItem(new string[] {
                 book.Type,

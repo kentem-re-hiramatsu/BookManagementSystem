@@ -8,13 +8,13 @@ namespace BookManagementSystem
 {
     public partial class BorrowingForm : Form
     {
-        private BookSystemManager _bookmana;
+        private BookSystemManager _bookMana;
         private User _user;
 
         public BorrowingForm(BookSystemManager bookMana, User user)
         {
             InitializeComponent();
-            _bookmana = bookMana;
+            _bookMana = bookMana;
             _user = user;
         }
 
@@ -28,7 +28,7 @@ namespace BookManagementSystem
         private void UpdateScreen()
         {
             BookListView.Items.Clear();
-            foreach (var book in _bookmana.BookOrderList)
+            foreach (var book in _bookMana.BookOrderList)
             {
                 if (book.Borrowing.User != null)
                 {
@@ -70,7 +70,7 @@ namespace BookManagementSystem
                 if (BookListView.SelectedItems.Count > 0)
                 {
                     //貸出処理
-                    _bookmana.BorrowingProcess(GetSelectedIndex(), ReturnDateTimePicker.Value, _user);
+                    _bookMana.BorrowingProcess(GetSelectedIndex(), ReturnDateTimePicker.Value, _user);
                     UpdateScreen();
                 }
                 ButtonEnableChenged();
@@ -88,7 +88,7 @@ namespace BookManagementSystem
                 if (BookListView.SelectedItems.Count > 0)
                 {
                     //返却処理
-                    _bookmana.ReturnProcess(GetSelectedIndex());
+                    _bookMana.ReturnProcess(GetSelectedIndex());
                     UpdateScreen();
                 }
                 ButtonEnableChenged();

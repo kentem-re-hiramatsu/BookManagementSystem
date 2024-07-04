@@ -9,12 +9,12 @@ namespace BookManagementSystem
 {
     public partial class RegistrationForm : Form
     {
-        private BookSystemManager _bookmana;
+        private BookSystemManager _bookMana;
 
         public RegistrationForm(BookSystemManager bookMana)
         {
             InitializeComponent();
-            _bookmana = bookMana;
+            _bookMana = bookMana;
         }
 
         private void RegistrationForm_Load(object sender, EventArgs e)
@@ -41,9 +41,9 @@ namespace BookManagementSystem
                 var overview = OverviewTextBox.Text;
 
                 //ComboBoxで選択されているTagから取得したEnumで本のインスタンス取得
-                var book = _bookmana.GetBookInstance((BookType)BookComboBox.SelectedItem, title, new BookDetail(age, author, overview));
+                var book = _bookMana.GetBookInstance((BookType)BookComboBox.SelectedItem, title, new BookDetail(age, author, overview));
 
-                _bookmana.Add(book);
+                _bookMana.Add(book);
 
                 DialogResult = DialogResult.OK;
             }

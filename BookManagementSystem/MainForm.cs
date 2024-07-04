@@ -7,7 +7,7 @@ namespace BookManagementSystem
 {
     public partial class MainForm : Form
     {
-        private BookSystemManager _bookmana = new BookSystemManager();
+        private BookSystemManager _bookMana = new BookSystemManager();
         private UserManager _userMana = new UserManager();
 
         public MainForm()
@@ -18,7 +18,7 @@ namespace BookManagementSystem
         private void UpdateScreen()
         {
             BookListView.Items.Clear();
-            foreach (var book in _bookmana.BookOrderList)
+            foreach (var book in _bookMana.BookOrderList)
             {
                 BookListView.Items.Add(new ListViewItem(new string[] { book.Title, book.Type, book.Borrowing.GetLendingStatusByshape() }));
             }
@@ -36,7 +36,7 @@ namespace BookManagementSystem
 
         private void RegistrationButton_Click(object sender, System.EventArgs e)
         {
-            if (new RegistrationForm(_bookmana).ShowDialog() == DialogResult.OK)
+            if (new RegistrationForm(_bookMana).ShowDialog() == DialogResult.OK)
             {
                 UpdateScreen();
             }
@@ -45,7 +45,7 @@ namespace BookManagementSystem
 
         private void EditButton_Click(object sender, System.EventArgs e)
         {
-            if (new EditForm(_bookmana, GetSelectedIndex()).ShowDialog() == DialogResult.OK)
+            if (new EditForm(_bookMana, GetSelectedIndex()).ShowDialog() == DialogResult.OK)
             {
                 UpdateScreen();
             }
@@ -54,7 +54,7 @@ namespace BookManagementSystem
 
         private void DetailButton_Click(object sender, System.EventArgs e)
         {
-            if (new DetailForm(_bookmana, GetSelectedIndex(), GetSelectedUser()).ShowDialog() == DialogResult.OK)
+            if (new DetailForm(_bookMana, GetSelectedIndex(), GetSelectedUser()).ShowDialog() == DialogResult.OK)
             {
                 UpdateScreen();
             }
@@ -63,7 +63,7 @@ namespace BookManagementSystem
 
         private void BorrowingButton_Click(object sender, System.EventArgs e)
         {
-            if (new BorrowingForm(_bookmana, GetSelectedUser()).ShowDialog() == DialogResult.OK)
+            if (new BorrowingForm(_bookMana, GetSelectedUser()).ShowDialog() == DialogResult.OK)
             {
                 UpdateScreen();
             }
@@ -72,7 +72,7 @@ namespace BookManagementSystem
 
         private void RemoveButton_Click(object sender, System.EventArgs e)
         {
-            _bookmana.Remove(GetSelectedIndex());
+            _bookMana.Remove(GetSelectedIndex());
             UpdateScreen();
             ButtonEnableChanged();
         }
