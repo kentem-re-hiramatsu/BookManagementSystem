@@ -96,9 +96,9 @@ namespace BookManagementSystem
         {
             var name = UserNameTextBox.Text;
             var age = (int)UserAgeUpDown.Value;
-            var admin = (UserType)AdminComboBox.SelectedItem == UserType.管理者;
+            var isAdmin = (UserType)AdminComboBox.SelectedItem == UserType.管理者;
 
-            _userMana.Add(new User(name, age, admin));
+            _userMana.Add(new User(name, age, isAdmin));
 
             UserNameTextBox.Text = null;
             UserAgeUpDown.Value = 0;
