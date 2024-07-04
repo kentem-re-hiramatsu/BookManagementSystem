@@ -37,6 +37,7 @@
             this.ReturnDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.ReturnDate = new System.Windows.Forms.Label();
             this.CloseButton = new System.Windows.Forms.Button();
+            this.UserLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // BookListView
@@ -122,11 +123,21 @@
             this.CloseButton.UseVisualStyleBackColor = true;
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
+            // UserLabel
+            // 
+            this.UserLabel.AutoSize = true;
+            this.UserLabel.Location = new System.Drawing.Point(12, 9);
+            this.UserLabel.Name = "UserLabel";
+            this.UserLabel.Size = new System.Drawing.Size(77, 12);
+            this.UserLabel.TabIndex = 24;
+            this.UserLabel.Text = "さん、こんにちは";
+            // 
             // BorrowingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(611, 372);
+            this.Controls.Add(this.UserLabel);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.ReturnDate);
             this.Controls.Add(this.ReturnDateTimePicker);
@@ -152,6 +163,7 @@
         private System.Windows.Forms.DateTimePicker ReturnDateTimePicker;
         private System.Windows.Forms.Label ReturnDate;
         private System.Windows.Forms.Button CloseButton;
+        private System.Windows.Forms.Label UserLabel;
     }
 }
 
