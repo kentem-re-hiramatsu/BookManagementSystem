@@ -1,5 +1,6 @@
 ﻿using BookSystem.Cores.Enum;
 using BookSystem.Cores.Model;
+using System;
 using System.Collections.Generic;
 
 namespace BookSystem.Cores.Manager
@@ -46,6 +47,50 @@ namespace BookSystem.Cores.Manager
             bookDetail.TargetAge = targetAge;
             bookDetail.Author = author;
             bookDetail.OverView = overView;
+        }
+
+        public void BorrowingProcess(int index, DateTime deadlineDateTime, User user)
+        {
+            var book = _bookOrderList[index];
+            var bookBorrowing = book.Borrowing;
+
+            if (bookBorrowing.IsLendable && DateTime.Now.AddDays(14) > deadlineDateTime && user.Age >= book.Detail.TargetAge)
+            {
+                bookBorrowing.IsLendable = false;
+                bookBorrowing.BorrowingTime = DateTime.Now;
+                bookBorrowing.DeadlineDateTime = deadlineDateTime;
+            }
+            else if (deadlineDateTime >= DateTime.Now.AddDays(14))
+            {
+                throw new Exception(Consts.OVER_LOAN_PEROD_ERROR_MESSAGE);
+            }
+            else if (user.Age < book.Detail.TargetAge)
+            {
+                throw new Exception(Consts.AGE_ERROR_MESSAGE);
+            }
+            else
+            {
+                throw new Exception(Consts.ON_LOAN_ERROR_MESSAGE);
+            }
+        }
+
+        /// <summary>
+        /// 返却処理
+        /// </summary>
+        public void ReturnProcess(int index)
+        {
+            var book = _bookOrderList[index].Borrowing;
+
+            if (!book.IsLendable)
+            {
+                book.IsLendable = true;
+                book.BorrowingTime = null;
+                book.DeadlineDateTime = null;
+            }
+            else
+            {
+                throw new Exception(Consts.NOT_LOAN_ERROR_MESSAGE);
+            }
         }
     }
 }

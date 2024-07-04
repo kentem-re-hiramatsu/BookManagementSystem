@@ -13,41 +13,6 @@ namespace BookSystem.Cores.Model
             IsLendable = true;
         }
 
-        public void SetBorrowing(DateTime deadlineDateTime)
-        {
-            if (IsLendable && DateTime.Now.AddDays(14) > deadlineDateTime)
-            {
-                IsLendable = false;
-                BorrowingTime = DateTime.Now;
-                DeadlineDateTime = deadlineDateTime;
-            }
-            else if (deadlineDateTime >= DateTime.Now.AddDays(14))
-            {
-                throw new Exception(Consts.OVER_LOAN_PEROD_ERROR_MESSAGE);
-            }
-            else
-            {
-                throw new Exception(Consts.ON_LOAN_ERROR_MESSAGE);
-            }
-        }
-
-        /// <summary>
-        /// 返却処理
-        /// </summary>
-        public void SetReturn()
-        {
-            if (!IsLendable)
-            {
-                IsLendable = true;
-                BorrowingTime = null;
-                DeadlineDateTime = null;
-            }
-            else
-            {
-                throw new Exception(Consts.NOT_LOAN_ERROR_MESSAGE);
-            }
-        }
-
         /// <summary>
         /// 貸出状況を〇×！で返す
         /// </summary>
