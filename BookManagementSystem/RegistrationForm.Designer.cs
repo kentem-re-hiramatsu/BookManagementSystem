@@ -127,12 +127,14 @@
             // 
             // BookComboBox
             // 
+            this.BookComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.BookComboBox.FormattingEnabled = true;
             this.BookComboBox.Location = new System.Drawing.Point(107, 42);
             this.BookComboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.BookComboBox.Name = "BookComboBox";
             this.BookComboBox.Size = new System.Drawing.Size(140, 21);
             this.BookComboBox.TabIndex = 0;
+            this.BookComboBox.SelectedIndexChanged += new System.EventHandler(this.BookComboBox_SelectedIndexChanged);
             // 
             // AgeNumericUpDown
             // 
