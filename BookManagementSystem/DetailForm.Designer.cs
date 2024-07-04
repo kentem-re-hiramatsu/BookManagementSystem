@@ -50,7 +50,7 @@
             this.BookListView.HideSelection = false;
             this.BookListView.Location = new System.Drawing.Point(14, 32);
             this.BookListView.Name = "BookListView";
-            this.BookListView.Size = new System.Drawing.Size(572, 144);
+            this.BookListView.Size = new System.Drawing.Size(636, 144);
             this.BookListView.TabIndex = 0;
             this.BookListView.UseCompatibleStateImageBehavior = false;
             this.BookListView.View = System.Windows.Forms.View.Details;
@@ -83,12 +83,12 @@
             // columnHeader4
             // 
             this.columnHeader4.Text = "貸出状況";
-            this.columnHeader4.Width = 86;
+            this.columnHeader4.Width = 160;
             // 
             // OkButton
             // 
             this.OkButton.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.OkButton.Location = new System.Drawing.Point(492, 182);
+            this.OkButton.Location = new System.Drawing.Point(558, 182);
             this.OkButton.Name = "OkButton";
             this.OkButton.Size = new System.Drawing.Size(92, 35);
             this.OkButton.TabIndex = 1;
@@ -100,7 +100,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(598, 229);
+            this.ClientSize = new System.Drawing.Size(662, 229);
             this.Controls.Add(this.OkButton);
             this.Controls.Add(this.BookListView);
             this.Name = "DetailForm";
