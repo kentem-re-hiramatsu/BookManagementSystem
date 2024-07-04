@@ -44,6 +44,7 @@
     <Compile Include="Consts.cs" />
     <Compile Include="Enum\BookType.cs" />
     <Compile Include="Manager\BookSystemManager.cs" />
+    <Compile Include="Manager\UserManager.cs" />
     <Compile Include="Model\Book.cs" />
     <Compile Include="Model\BookDetail.cs" />
     <Compile Include="Model\Borrowing.cs" />
