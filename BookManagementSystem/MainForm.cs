@@ -99,6 +99,14 @@ namespace BookManagementSystem
             var admin = (UserType)AdminComboBox.SelectedItem == UserType.管理者;
 
             _userMana.Add(new User(name, age, admin));
+
+            UserNameTextBox.Text = null;
+            UserAgeUpDown.Value = 0;
+
+            foreach (var user in _userMana.UserDatas)
+            {
+                UserComboBox.Items.Add(user.Name);
+            }
         }
 
         private void MainForm_Load(object sender, System.EventArgs e)
