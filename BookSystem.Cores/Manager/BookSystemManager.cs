@@ -91,6 +91,7 @@ namespace BookSystem.Cores.Manager
                 book.IsLendable = true;
                 book.BorrowingDateTime = null;
                 book.DeadlineDateTime = null;
+                user.IsRestriction = book.DeadlineDateTime.Value.Date > DateTime.Now.Date;
             }
             else if (user.Name != book.User.Name || user.Age != book.User.Age)
             {
