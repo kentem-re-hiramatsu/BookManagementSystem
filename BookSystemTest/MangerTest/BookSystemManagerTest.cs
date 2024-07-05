@@ -167,6 +167,30 @@ namespace BookSystemTest.MangerTest
             Assert.ThrowsException<Exception>(() => bookSystemMana.ReturnProcess(0, juliet));
         }
 
+        /// <summary>
+        /// 貸出制限テスト
+        /// </summary>
+        [TestMethod]
+        public void RestrictionLoanTest()
+        {
+            var bookSystemMana = new BookSystemManager();
+
+            var picture = bookSystemMana.GetBookInstance(BookType.絵本, "ぐりとぐら", new BookDetail(10, "ぐり", ""));
+
+            bookSystemMana.Add(picture);
+
+            var adamu = new User("アダム", 11, false);
+            Assert.IsFalse(adamu.IsRestriction);
+
+            bookSystemMana.BorrowingProcess(0, DateTime.Now.AddDays(-1), adamu);
+
+            bookSystemMana.ReturnProcess(0, adamu);
+            Assert.IsTrue(adamu.IsRestriction);
+
+            //貸出期限されているためエラー
+            Assert.ThrowsException<Exception>(() => bookSystemMana.BorrowingProcess(0, DateTime.Now.AddDays(-1), adamu));
+        }
+
         [TestMethod]
         public void GetLendingStatusByshapeTest()
         {
