@@ -108,10 +108,13 @@ namespace BookManagementSystem
             AdminComboBox.SelectedItem = null;
 
             UserComboBox.Items.Clear();
+            //登録してあるユーザー名をComboBoxに追加
             foreach (var user in _userMana.UserDatas)
             {
                 UserComboBox.Items.Add(user.Name);
             }
+
+            BorrowingAndDetailButtonEnableChanged();
         }
 
         private User GetSelectedUser()
@@ -125,9 +128,21 @@ namespace BookManagementSystem
             AdminComboBox.Items.Add(UserType.管理者);
         }
 
+        /// <summary>
+        /// ユーザー登録ボタンの活性状態の管理
+        /// </summary>
         private void UserRegisterButtonEnableChanged()
         {
             UserRegisterButton.Enabled = UserNameTextBox.Text.Length > 0 && AdminComboBox.Text.Length > 0;
+        }
+
+        /// <summary>
+        /// 貸出ボタンと詳細ボタンの活性状態の管理
+        /// </summary>
+        private void BorrowingAndDetailButtonEnableChanged()
+        {
+            BorrowingButton.Enabled = UserComboBox.SelectedIndex > -1;
+            DetailButton.Enabled = BookListView.SelectedItems.Count > 0 && UserComboBox.SelectedIndex > -1;
         }
 
         private void UserNameTextBox_TextChanged(object sender, System.EventArgs e)
@@ -137,8 +152,7 @@ namespace BookManagementSystem
 
         private void UserComboBox_SelectedIndexChanged(object sender, System.EventArgs e)
         {
-            BorrowingButton.Enabled = UserComboBox.SelectedIndex > -1;
-            DetailButton.Enabled = BookListView.SelectedItems.Count > 0 && UserComboBox.SelectedIndex > -1;
+            BorrowingAndDetailButtonEnableChanged();
         }
     }
 }
