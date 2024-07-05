@@ -78,16 +78,20 @@ namespace BookSystem.Cores.Manager
         /// <summary>
         /// 返却処理
         /// </summary>
-        public void ReturnProcess(int index)
+        public void ReturnProcess(int index, User user)
         {
             var book = _bookOrderList[index].Borrowing;
 
-            if (!book.IsLendable)
+            if (!book.IsLendable && user.Name == book.User.Name && user.Age == book.User.Age)
             {
                 book.User = null;
                 book.IsLendable = true;
                 book.BorrowingTime = null;
                 book.DeadlineDateTime = null;
+            }
+            else if (user.Name != book.User.Name || user.Age != book.User.Age)
+            {
+                throw new Exception(Consts.OTHERS_BOOK_ERROR_MESSAGE);
             }
             else
             {
