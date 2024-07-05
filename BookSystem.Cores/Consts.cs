@@ -15,5 +15,7 @@
         public const string LOANABLE_CIRCLE_MESSAGE = "〇";
         public const string ON_LOAN_CROSS_MESSAGE = "×";
         public const string OVER_LOAN_PEROD_CIRCLE_MESSAGE = "×!";
+
+        public const string OTHERS_BOOK_ERROR_MESSAGE = "他人の本を返すことはできません";
     }
 }
