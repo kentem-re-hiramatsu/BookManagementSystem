@@ -152,6 +152,7 @@
             this.UserNameTextBox.Name = "UserNameTextBox";
             this.UserNameTextBox.Size = new System.Drawing.Size(100, 19);
             this.UserNameTextBox.TabIndex = 19;
+            this.UserNameTextBox.TextChanged += new System.EventHandler(this.UserNameTextBox_TextChanged);
             // 
             // label1
             // 
@@ -173,6 +174,7 @@
             // 
             // UserRegisterButton
             // 
+            this.UserRegisterButton.Enabled = false;
             this.UserRegisterButton.Location = new System.Drawing.Point(471, 382);
             this.UserRegisterButton.Name = "UserRegisterButton";
             this.UserRegisterButton.Size = new System.Drawing.Size(100, 23);
@@ -197,6 +199,7 @@
             this.AdminComboBox.Name = "AdminComboBox";
             this.AdminComboBox.Size = new System.Drawing.Size(100, 20);
             this.AdminComboBox.TabIndex = 25;
+            this.AdminComboBox.SelectedIndexChanged += new System.EventHandler(this.UserNameTextBox_TextChanged);
             // 
             // label2
             // 
