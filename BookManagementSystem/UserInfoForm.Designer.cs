@@ -33,6 +33,8 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.CloseButton = new System.Windows.Forms.Button();
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.RestrictionButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // UserInfoListView
@@ -40,14 +42,16 @@
             this.UserInfoListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
-            this.columnHeader3});
+            this.columnHeader3,
+            this.columnHeader4});
             this.UserInfoListView.HideSelection = false;
             this.UserInfoListView.Location = new System.Drawing.Point(12, 12);
             this.UserInfoListView.Name = "UserInfoListView";
-            this.UserInfoListView.Size = new System.Drawing.Size(245, 264);
+            this.UserInfoListView.Size = new System.Drawing.Size(327, 264);
             this.UserInfoListView.TabIndex = 0;
             this.UserInfoListView.UseCompatibleStateImageBehavior = false;
             this.UserInfoListView.View = System.Windows.Forms.View.Details;
+            this.UserInfoListView.SelectedIndexChanged += new System.EventHandler(this.UserInfoListView_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -66,7 +70,7 @@
             // 
             // CloseButton
             // 
-            this.CloseButton.Location = new System.Drawing.Point(182, 282);
+            this.CloseButton.Location = new System.Drawing.Point(264, 282);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(75, 28);
             this.CloseButton.TabIndex = 1;
@@ -74,11 +78,28 @@
             this.CloseButton.UseVisualStyleBackColor = true;
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "制限";
+            this.columnHeader4.Width = 80;
+            // 
+            // RestrictionButton
+            // 
+            this.RestrictionButton.Enabled = false;
+            this.RestrictionButton.Location = new System.Drawing.Point(174, 282);
+            this.RestrictionButton.Name = "RestrictionButton";
+            this.RestrictionButton.Size = new System.Drawing.Size(75, 28);
+            this.RestrictionButton.TabIndex = 2;
+            this.RestrictionButton.Text = "制限解除";
+            this.RestrictionButton.UseVisualStyleBackColor = true;
+            this.RestrictionButton.Click += new System.EventHandler(this.RestrictionButton_Click);
+            // 
             // UserInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(269, 322);
+            this.ClientSize = new System.Drawing.Size(352, 322);
+            this.Controls.Add(this.RestrictionButton);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.UserInfoListView);
             this.Name = "UserInfoForm";
@@ -95,6 +116,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.Button CloseButton;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.Button RestrictionButton;
     }
 }
 
