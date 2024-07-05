@@ -28,14 +28,17 @@ namespace BookManagementSystem
         private void UpdateScreen()
         {
             BookListView.Items.Clear();
+            int index = -1;
+
             foreach (var book in _bookMana.BookOrderList)
             {
+                index++;
                 if (book.Borrowing.User != null)
                 {
                     BookListView.Items.Add(new ListViewItem(new string[] {
                         book.Title,
                         book.Type,
-                        book.Borrowing.GetLendingStatusByshape(),
+                        _bookMana.GetLendingStatus(index),
                         book.Borrowing.User.Name,
                         book.Borrowing.User.Age.ToString()
                     }));
@@ -45,7 +48,7 @@ namespace BookManagementSystem
                     BookListView.Items.Add(new ListViewItem(new string[] {
                         book.Title,
                         book.Type,
-                        book.Borrowing.GetLendingStatusByshape(),
+                        _bookMana.GetLendingStatusByshape(index),
                     }));
                 }
             }
