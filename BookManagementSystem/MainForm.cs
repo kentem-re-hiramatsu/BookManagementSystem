@@ -84,7 +84,7 @@ namespace BookManagementSystem
         {
             RemoveButton.Enabled = BookListView.SelectedItems.Count > 0;
             EditButton.Enabled = BookListView.SelectedItems.Count > 0;
-            DetailButton.Enabled = BookListView.SelectedItems.Count > 0;
+            DetailButton.Enabled = BookListView.SelectedItems.Count > 0 && UserComboBox.SelectedIndex > -1;
         }
 
         private void BookListView_SelectedIndexChanged(object sender, System.EventArgs e)
@@ -130,6 +130,12 @@ namespace BookManagementSystem
         private void UserNameTextBox_TextChanged(object sender, System.EventArgs e)
         {
             UserRegisterButtonEnableChanged();
+        }
+
+        private void UserComboBox_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            BorrowingButton.Enabled = UserComboBox.SelectedIndex > -1;
+            DetailButton.Enabled = BookListView.SelectedItems.Count > 0 && UserComboBox.SelectedIndex > -1;
         }
     }
 }

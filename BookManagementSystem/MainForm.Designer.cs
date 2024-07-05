@@ -93,6 +93,7 @@
             // 
             // BorrowingButton
             // 
+            this.BorrowingButton.Enabled = false;
             this.BorrowingButton.Font = new System.Drawing.Font("MS UI Gothic", 10F);
             this.BorrowingButton.Location = new System.Drawing.Point(380, 46);
             this.BorrowingButton.Name = "BorrowingButton";
@@ -145,6 +146,7 @@
             this.UserComboBox.Name = "UserComboBox";
             this.UserComboBox.Size = new System.Drawing.Size(100, 20);
             this.UserComboBox.TabIndex = 18;
+            this.UserComboBox.SelectedIndexChanged += new System.EventHandler(this.UserComboBox_SelectedIndexChanged);
             // 
             // UserNameTextBox
             // 
