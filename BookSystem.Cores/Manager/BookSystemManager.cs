@@ -54,7 +54,7 @@ namespace BookSystem.Cores.Manager
             var book = _bookOrderList[index];
             var bookBorrowing = book.Borrowing;
 
-            if (bookBorrowing.IsLendable && DateTime.Now.AddDays(14).Date > deadlineDateTime.Date && user.Age >= book.Detail.TargetAge)
+            if (bookBorrowing.IsLendable && DateTime.Now.AddDays(14).Date > deadlineDateTime.Date && user.Age >= book.Detail.TargetAge && !user.IsRestriction)
             {
                 bookBorrowing.IsLendable = false;
                 bookBorrowing.BorrowingDateTime = DateTime.Now;
@@ -68,6 +68,10 @@ namespace BookSystem.Cores.Manager
             else if (user.Age < book.Detail.TargetAge)
             {
                 throw new Exception(Consts.AGE_ERROR_MESSAGE);
+            }
+            else if (user.IsRestriction)
+            {
+                throw new Exception(Consts.RESTRICTION_LOAN_ERROR_MESSAGE);
             }
             else
             {
@@ -87,11 +91,12 @@ namespace BookSystem.Cores.Manager
 
             if (book.User != null && user.Name == book.User.Name && user.Age == book.User.Age)
             {
+                user.IsRestriction = DateTime.Now.Date > book.DeadlineDateTime.Value.Date;
+
                 book.User = null;
                 book.IsLendable = true;
                 book.BorrowingDateTime = null;
                 book.DeadlineDateTime = null;
-                user.IsRestriction = book.DeadlineDateTime.Value.Date > DateTime.Now.Date;
             }
             else if (user.Name != book.User.Name || user.Age != book.User.Age)
             {
