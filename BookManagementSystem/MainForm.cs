@@ -9,6 +9,9 @@ namespace BookManagementSystem
     {
         private BookSystemManager _bookMana = new BookSystemManager();
         private UserManager _userMana = new UserManager();
+        private string _adminId = "admin";
+        private string _adminPassword = "admin";
+        private bool _isAdmin = false;
 
         public MainForm()
         {
@@ -97,9 +100,24 @@ namespace BookManagementSystem
 
         private void UserRegisterButton_Click(object sender, System.EventArgs e)
         {
+            bool isAdmin;
+
+            if ((UserType)AdminComboBox.SelectedItem == UserType.管理者 && _isAdmin)
+            {
+                isAdmin = true;
+            }
+            else if ((UserType)AdminComboBox.SelectedItem == UserType.一般)
+            {
+                isAdmin = false;
+            }
+            else
+            {
+                MessageBox.Show("ログインしてください");
+                return;
+            }
+
             var name = UserNameTextBox.Text;
             var age = (int)UserAgeUpDown.Value;
-            var isAdmin = (UserType)AdminComboBox.SelectedItem == UserType.管理者;
 
             _userMana.Add(new User(name, age, isAdmin));
 
@@ -152,7 +170,38 @@ namespace BookManagementSystem
 
         private void UserComboBox_SelectedIndexChanged(object sender, System.EventArgs e)
         {
+            if (UserComboBox.SelectedIndex > -1 && _userMana.Get(UserComboBox.SelectedIndex).IsAdmin && !_isAdmin)
+            {
+                UserComboBox.SelectedItem = null;
+                MessageBox.Show("ログインしてください");
+                return;
+            }
             BorrowingAndDetailButtonEnableChanged();
+        }
+
+        private void LogInButton_Click(object sender, System.EventArgs e)
+        {
+            if (IDTextBox.Text == _adminId && PasswordTextBox.Text == _adminPassword)
+            {
+                _isAdmin = true;
+                IDTextBox.Text = null;
+                PasswordTextBox.Text = null;
+            }
+            else
+            {
+                MessageBox.Show("IDまたはパスワードが違います。");
+            }
+        }
+
+        private void IDTextBox_TextChanged(object sender, System.EventArgs e)
+        {
+            LogInButton.Enabled = IDTextBox.Text.Length > 0 && PasswordTextBox.Text.Length > 0;
+        }
+
+        private void LogOutButton_Click(object sender, System.EventArgs e)
+        {
+            _isAdmin = false;
+            UserComboBox.SelectedItem = null;
         }
     }
 }

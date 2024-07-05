@@ -242,6 +242,7 @@
             this.IDTextBox.Name = "IDTextBox";
             this.IDTextBox.Size = new System.Drawing.Size(100, 19);
             this.IDTextBox.TabIndex = 29;
+            this.IDTextBox.TextChanged += new System.EventHandler(this.IDTextBox_TextChanged);
             // 
             // PasswordTextBox
             // 
@@ -249,16 +250,17 @@
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.Size = new System.Drawing.Size(100, 19);
             this.PasswordTextBox.TabIndex = 30;
+            this.PasswordTextBox.TextChanged += new System.EventHandler(this.IDTextBox_TextChanged);
             // 
             // LogOutButton
             // 
-            this.LogOutButton.Enabled = false;
             this.LogOutButton.Location = new System.Drawing.Point(496, 12);
             this.LogOutButton.Name = "LogOutButton";
             this.LogOutButton.Size = new System.Drawing.Size(75, 23);
             this.LogOutButton.TabIndex = 31;
             this.LogOutButton.Text = "ログアウト";
             this.LogOutButton.UseVisualStyleBackColor = true;
+            this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
             // 
             // LogInButton
             // 
@@ -269,6 +271,7 @@
             this.LogInButton.TabIndex = 32;
             this.LogInButton.Text = "ログイン";
             this.LogInButton.UseVisualStyleBackColor = true;
+            this.LogInButton.Click += new System.EventHandler(this.LogInButton_Click);
             // 
             // MainForm
             // 
