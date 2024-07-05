@@ -102,6 +102,7 @@ namespace BookManagementSystem
 
             UserNameTextBox.Text = null;
             UserAgeUpDown.Value = 0;
+            AdminComboBox.SelectedItem = null;
 
             UserComboBox.Items.Clear();
             foreach (var user in _userMana.UserDatas)
@@ -119,6 +120,16 @@ namespace BookManagementSystem
         {
             AdminComboBox.Items.Add(UserType.一般);
             AdminComboBox.Items.Add(UserType.管理者);
+        }
+
+        private void UserRegisterButtonEnableChanged()
+        {
+            UserRegisterButton.Enabled = UserNameTextBox.Text.Length > 0 && AdminComboBox.Text.Length > 0;
+        }
+
+        private void UserNameTextBox_TextChanged(object sender, System.EventArgs e)
+        {
+            UserRegisterButtonEnableChanged();
         }
     }
 }
