@@ -82,7 +82,10 @@ namespace BookSystem.Cores.Manager
         {
             var book = _bookOrderList[index].Borrowing;
 
-            if (!book.IsLendable && user.Name == book.User.Name && user.Age == book.User.Age)
+            if (book.IsLendable)
+                throw new Exception(Consts.NOT_LOAN_ERROR_MESSAGE);
+
+            if (book.User != null && user.Name == book.User.Name && user.Age == book.User.Age)
             {
                 book.User = null;
                 book.IsLendable = true;
@@ -92,10 +95,6 @@ namespace BookSystem.Cores.Manager
             else if (user.Name != book.User.Name || user.Age != book.User.Age)
             {
                 throw new Exception(Consts.OTHERS_BOOK_ERROR_MESSAGE);
-            }
-            else
-            {
-                throw new Exception(Consts.NOT_LOAN_ERROR_MESSAGE);
             }
         }
 
