@@ -189,5 +189,28 @@ namespace BookSystemTest.MangerTest
             bookSystemMana.BorrowingProcess(0, DateTime.Now.AddDays(-1), adamu);
             Assert.AreEqual("×!", bookSystemMana.GetLendingStatusByshape(0));
         }
+
+        [TestMethod]
+        public void GetLendingStatusTest()
+        {
+            var bookSystemMana = new BookSystemManager();
+
+            var picture = bookSystemMana.GetBookInstance(BookType.絵本, "ぐりとぐら", new BookDetail(10, "ぐり", ""));
+
+            bookSystemMana.Add(picture);
+
+            Assert.AreEqual("貸出可", bookSystemMana.GetLendingStatus(0));
+
+            var adamu = new User("アダム", 11, false);
+
+            bookSystemMana.BorrowingProcess(0, DateTime.Now.AddDays(0), adamu);
+            Assert.AreEqual("貸出中", bookSystemMana.GetLendingStatus(0));
+
+            bookSystemMana.ReturnProcess(0, adamu);
+            Assert.AreEqual("貸出可", bookSystemMana.GetLendingStatus(0));
+
+            bookSystemMana.BorrowingProcess(0, DateTime.Now.AddDays(-1), adamu);
+            Assert.AreEqual("貸出中(1日の期限超過)", bookSystemMana.GetLendingStatus(0));
+        }
     }
 }
