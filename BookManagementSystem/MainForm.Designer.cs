@@ -51,6 +51,7 @@
             this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.LogOutButton = new System.Windows.Forms.Button();
             this.LogInButton = new System.Windows.Forms.Button();
+            this.UserInfoButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.UserAgeUpDown)).BeginInit();
             this.SuspendLayout();
             // 
@@ -221,7 +222,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(469, 101);
+            this.label3.Location = new System.Drawing.Point(470, 102);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(16, 12);
             this.label3.TabIndex = 27;
@@ -230,7 +231,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(469, 147);
+            this.label4.Location = new System.Drawing.Point(470, 148);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 12);
             this.label4.TabIndex = 28;
@@ -238,7 +239,7 @@
             // 
             // IDTextBox
             // 
-            this.IDTextBox.Location = new System.Drawing.Point(471, 116);
+            this.IDTextBox.Location = new System.Drawing.Point(472, 117);
             this.IDTextBox.Name = "IDTextBox";
             this.IDTextBox.Size = new System.Drawing.Size(100, 19);
             this.IDTextBox.TabIndex = 29;
@@ -246,7 +247,7 @@
             // 
             // PasswordTextBox
             // 
-            this.PasswordTextBox.Location = new System.Drawing.Point(471, 162);
+            this.PasswordTextBox.Location = new System.Drawing.Point(472, 163);
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.Size = new System.Drawing.Size(100, 19);
             this.PasswordTextBox.TabIndex = 30;
@@ -254,7 +255,7 @@
             // 
             // LogOutButton
             // 
-            this.LogOutButton.Location = new System.Drawing.Point(496, 12);
+            this.LogOutButton.Location = new System.Drawing.Point(497, 13);
             this.LogOutButton.Name = "LogOutButton";
             this.LogOutButton.Size = new System.Drawing.Size(75, 23);
             this.LogOutButton.TabIndex = 31;
@@ -265,7 +266,7 @@
             // LogInButton
             // 
             this.LogInButton.Enabled = false;
-            this.LogInButton.Location = new System.Drawing.Point(496, 196);
+            this.LogInButton.Location = new System.Drawing.Point(497, 197);
             this.LogInButton.Name = "LogInButton";
             this.LogInButton.Size = new System.Drawing.Size(75, 23);
             this.LogInButton.TabIndex = 32;
@@ -273,11 +274,22 @@
             this.LogInButton.UseVisualStyleBackColor = true;
             this.LogInButton.Click += new System.EventHandler(this.LogInButton_Click);
             // 
+            // UserInfoButton
+            // 
+            this.UserInfoButton.Enabled = false;
+            this.UserInfoButton.Location = new System.Drawing.Point(16, 13);
+            this.UserInfoButton.Name = "UserInfoButton";
+            this.UserInfoButton.Size = new System.Drawing.Size(85, 23);
+            this.UserInfoButton.TabIndex = 33;
+            this.UserInfoButton.Text = "ユーザー管理";
+            this.UserInfoButton.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(596, 450);
+            this.ClientSize = new System.Drawing.Size(599, 450);
+            this.Controls.Add(this.UserInfoButton);
             this.Controls.Add(this.LogInButton);
             this.Controls.Add(this.LogOutButton);
             this.Controls.Add(this.PasswordTextBox);
@@ -332,6 +344,7 @@
         private System.Windows.Forms.TextBox PasswordTextBox;
         private System.Windows.Forms.Button LogOutButton;
         private System.Windows.Forms.Button LogInButton;
+        private System.Windows.Forms.Button UserInfoButton;
     }
 }
 
