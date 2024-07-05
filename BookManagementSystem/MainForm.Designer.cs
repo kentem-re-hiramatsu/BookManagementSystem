@@ -283,6 +283,7 @@
             this.UserInfoButton.TabIndex = 33;
             this.UserInfoButton.Text = "ユーザー管理";
             this.UserInfoButton.UseVisualStyleBackColor = true;
+            this.UserInfoButton.Click += new System.EventHandler(this.UserInfoButton_Click);
             // 
             // MainForm
             // 

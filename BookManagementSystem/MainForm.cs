@@ -217,5 +217,10 @@ namespace BookManagementSystem
             _isAdmin = false;
             UserComboBox.SelectedItem = null;
         }
+
+        private void UserInfoButton_Click(object sender, System.EventArgs e)
+        {
+            new UserInfoForm(_userMana).ShowDialog();
+        }
     }
 }
