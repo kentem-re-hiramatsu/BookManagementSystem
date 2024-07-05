@@ -54,14 +54,14 @@ namespace BookSystem.Cores.Manager
             var book = _bookOrderList[index];
             var bookBorrowing = book.Borrowing;
 
-            if (bookBorrowing.IsLendable && DateTime.Now.AddDays(14) > deadlineDateTime && user.Age >= book.Detail.TargetAge)
+            if (bookBorrowing.IsLendable && DateTime.Now.AddDays(14).Date > deadlineDateTime.Date && user.Age >= book.Detail.TargetAge)
             {
                 bookBorrowing.IsLendable = false;
                 bookBorrowing.BorrowingDateTime = DateTime.Now;
                 bookBorrowing.DeadlineDateTime = deadlineDateTime;
                 bookBorrowing.User = user;
             }
-            else if (deadlineDateTime >= DateTime.Now.AddDays(14))
+            else if (deadlineDateTime.Date >= DateTime.Now.AddDays(14).Date)
             {
                 throw new Exception(Consts.OVER_LOAN_PEROD_ERROR_MESSAGE);
             }
