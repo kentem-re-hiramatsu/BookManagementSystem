@@ -129,5 +129,42 @@ namespace BookSystemTest.MangerTest
             //貸出中のためエラー
             Assert.ThrowsException<Exception>(() => bookSystemMana.BorrowingProcess(0, DateTime.Now.AddDays(13), adamu));
         }
+
+        [TestMethod]
+        public void ReturnProcessTest()
+        {
+            var bookSystemMana = new BookSystemManager();
+
+            var picture = bookSystemMana.GetBookInstance(BookType.絵本, "ぐりとぐら", new BookDetail(10, "ぐり", ""));
+
+            bookSystemMana.Add(picture);
+
+            var adamu = new User("アダム", 11, false);
+            var juliet = new User("ジュリエット", 12, true);
+
+            bookSystemMana.BorrowingProcess(0, DateTime.Now.AddDays(13), adamu);
+
+            var bookBorrowing = bookSystemMana.Get(0).Borrowing;
+
+            Assert.IsFalse(bookBorrowing.IsLendable);
+            Assert.AreEqual(DateTime.Now.Date, bookBorrowing.BorrowingDateTime.Value.Date);
+            Assert.AreEqual(DateTime.Now.AddDays(13).Date, bookBorrowing.DeadlineDateTime.Value.Date);
+
+            Assert.AreEqual("アダム", bookBorrowing.User.Name);
+            Assert.AreEqual(11, bookBorrowing.User.Age);
+            Assert.IsFalse(bookBorrowing.User.IsAdmin);
+
+            //他の人が返却しようとしたためエラー
+            Assert.ThrowsException<Exception>(() => bookSystemMana.ReturnProcess(0, juliet));
+
+            bookSystemMana.ReturnProcess(0, adamu);
+
+            Assert.IsTrue(bookBorrowing.IsLendable);
+            Assert.IsNull(bookBorrowing.BorrowingDateTime);
+            Assert.IsNull(bookBorrowing.DeadlineDateTime);
+            Assert.IsNull(bookBorrowing.User);
+
+            Assert.ThrowsException<Exception>(() => bookSystemMana.ReturnProcess(0, juliet));
+        }
     }
 }
