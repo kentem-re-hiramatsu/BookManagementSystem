@@ -17,7 +17,7 @@ namespace BookSystemTest.ModelTest
             Assert.AreEqual("尾田栄一郎", Comic.Detail.Author);
             Assert.AreEqual("ルフィーを主人公とする物語。", Comic.Detail.OverView);
             Assert.AreEqual(true, Comic.Borrowing.IsLendable);
-            Assert.IsNull(Comic.Borrowing.BorrowingTime);
+            Assert.IsNull(Comic.Borrowing.BorrowingDateTime);
             Assert.IsNull(Comic.Borrowing.DeadlineDateTime);
         }
     }

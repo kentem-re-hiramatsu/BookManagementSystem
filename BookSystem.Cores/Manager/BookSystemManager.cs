@@ -57,7 +57,7 @@ namespace BookSystem.Cores.Manager
             if (bookBorrowing.IsLendable && DateTime.Now.AddDays(14) > deadlineDateTime && user.Age >= book.Detail.TargetAge)
             {
                 bookBorrowing.IsLendable = false;
-                bookBorrowing.BorrowingTime = DateTime.Now;
+                bookBorrowing.BorrowingDateTime = DateTime.Now;
                 bookBorrowing.DeadlineDateTime = deadlineDateTime;
                 bookBorrowing.User = user;
             }
@@ -86,7 +86,7 @@ namespace BookSystem.Cores.Manager
             {
                 book.User = null;
                 book.IsLendable = true;
-                book.BorrowingTime = null;
+                book.BorrowingDateTime = null;
                 book.DeadlineDateTime = null;
             }
             else if (user.Name != book.User.Name || user.Age != book.User.Age)

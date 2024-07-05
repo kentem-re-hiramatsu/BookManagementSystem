@@ -6,7 +6,7 @@ namespace BookSystem.Cores.Model
     {
         public User User { get; set; }
         public bool IsLendable { get; set; }
-        public DateTime? BorrowingTime { get; set; }
+        public DateTime? BorrowingDateTime { get; set; }
         public DateTime? DeadlineDateTime { get; set; }
 
         public Borrowing()

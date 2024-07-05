@@ -17,7 +17,7 @@ namespace BookSystemTest.ModelTest
             Assert.AreEqual("中川", picture.Detail.Author);
             Assert.AreEqual("ぐりとぐらを主人公とする物語。", picture.Detail.OverView);
             Assert.AreEqual(true, picture.Borrowing.IsLendable);
-            Assert.IsNull(picture.Borrowing.BorrowingTime);
+            Assert.IsNull(picture.Borrowing.BorrowingDateTime);
             Assert.IsNull(picture.Borrowing.DeadlineDateTime);
         }
     }

@@ -17,7 +17,7 @@ namespace BookSystemTest.ModelTest
             Assert.AreEqual("芥川龍之介", Nobel.Detail.Author);
             Assert.AreEqual("昔話", Nobel.Detail.OverView);
             Assert.AreEqual(true, Nobel.Borrowing.IsLendable);
-            Assert.IsNull(Nobel.Borrowing.BorrowingTime);
+            Assert.IsNull(Nobel.Borrowing.BorrowingDateTime);
             Assert.IsNull(Nobel.Borrowing.DeadlineDateTime);
         }
     }
