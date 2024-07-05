@@ -98,5 +98,20 @@ namespace BookSystem.Cores.Manager
                 throw new Exception(Consts.NOT_LOAN_ERROR_MESSAGE);
             }
         }
+
+        /// <summary>
+        /// 貸出状況を〇×！で返す
+        /// </summary>
+        public string GetLendingStatusByshape(int Index)
+        {
+            var book = _bookOrderList[Index].Borrowing;
+
+            if (book.IsLendable)
+                return Consts.LOANABLE_CIRCLE_MESSAGE;
+            else if (DateTime.Now.Date > book.DeadlineDateTime.Value.Date)
+                return Consts.OVER_LOAN_PEROD_CIRCLE_MESSAGE;
+            else
+                return Consts.ON_LOAN_CROSS_MESSAGE;
+        }
     }
 }
