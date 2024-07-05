@@ -2,6 +2,7 @@
 using BookSystem.Cores.Manager;
 using BookSystem.Cores.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace BookSystemTest.MangerTest
 {
@@ -92,6 +93,41 @@ namespace BookSystemTest.MangerTest
             Assert.AreEqual("", picture.Detail.OverView);
             Assert.AreEqual("", comic.Detail.OverView);
             Assert.AreEqual("", nobel.Detail.OverView);
+        }
+
+        [TestMethod]
+        public void BorrowingProcessTest()
+        {
+            var bookSystemMana = new BookSystemManager();
+
+            var picture = bookSystemMana.GetBookInstance(BookType.絵本, "ぐりとぐら", new BookDetail(10, "ぐり", ""));
+
+            bookSystemMana.Add(picture);
+
+            var adamu = new User("アダム", 11, false);
+            var juliet = new User("ジュリエット", 9, true);
+
+            Assert.IsTrue(bookSystemMana.Get(0).Borrowing.IsLendable);
+
+            //貸出期限を超えているためエラー
+            Assert.ThrowsException<Exception>(() => bookSystemMana.BorrowingProcess(0, DateTime.Now.AddDays(14), adamu));
+            //ユーザーが本の対象年齢以下のためエラー
+            Assert.ThrowsException<Exception>(() => bookSystemMana.BorrowingProcess(0, DateTime.Now.AddDays(13), juliet));
+
+            bookSystemMana.BorrowingProcess(0, DateTime.Now.AddDays(13), adamu);
+
+            var bookBorrowing = bookSystemMana.Get(0).Borrowing;
+
+            Assert.IsFalse(bookBorrowing.IsLendable);
+            Assert.AreEqual(DateTime.Now.Date, bookBorrowing.BorrowingDateTime.Value.Date);
+            Assert.AreEqual(DateTime.Now.AddDays(13).Date, bookBorrowing.DeadlineDateTime.Value.Date);
+
+            Assert.AreEqual("アダム", bookBorrowing.User.Name);
+            Assert.AreEqual(11, bookBorrowing.User.Age);
+            Assert.IsFalse(bookBorrowing.User.IsAdmin);
+
+            //貸出中のためエラー
+            Assert.ThrowsException<Exception>(() => bookSystemMana.BorrowingProcess(0, DateTime.Now.AddDays(13), adamu));
         }
     }
 }
