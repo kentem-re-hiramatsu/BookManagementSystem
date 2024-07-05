@@ -29,7 +29,7 @@ namespace BookManagementSystem
                 book.Detail.TargetAge.ToString(),
                 book.Detail.Author,
                 book.Detail.OverView,
-                book.Borrowing.GetLendingStatus()
+                _bookMana.GetLendingStatus(_selectedIndex),
             }));
 
             var user = book.Borrowing.User;

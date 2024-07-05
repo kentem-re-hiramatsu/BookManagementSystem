@@ -18,9 +18,12 @@ namespace BookManagementSystem
         private void UpdateScreen()
         {
             BookListView.Items.Clear();
+            int index = -1;
+
             foreach (var book in _bookMana.BookOrderList)
             {
-                BookListView.Items.Add(new ListViewItem(new string[] { book.Title, book.Type, book.Borrowing.GetLendingStatusByshape() }));
+                index++;
+                BookListView.Items.Add(new ListViewItem(new string[] { book.Title, book.Type, _bookMana.GetLendingStatusByshape(index) }));
             }
         }
 
