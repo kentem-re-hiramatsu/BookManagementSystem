@@ -88,7 +88,7 @@ namespace BookManagementSystem
                 if (BookListView.SelectedItems.Count > 0)
                 {
                     //返却処理
-                    _bookMana.ReturnProcess(GetSelectedIndex());
+                    _bookMana.ReturnProcess(GetSelectedIndex(), _user);
                     UpdateScreen();
                 }
                 ButtonEnableChenged();
