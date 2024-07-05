@@ -17,5 +17,6 @@
         public const string OVER_LOAN_PEROD_CIRCLE_MESSAGE = "×!";
 
         public const string OTHERS_BOOK_ERROR_MESSAGE = "他人の本を返すことはできません";
+        public const string RESTRICTION_LOAN_ERROR_MESSAGE = "制限されているため貸出ができません";
     }
 }
