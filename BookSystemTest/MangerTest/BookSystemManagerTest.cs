@@ -9,11 +9,27 @@ namespace BookSystemTest.MangerTest
     public class BookSystemManagerTest
     {
         [TestMethod]
-        public void AddAndRemoveTest()
+        public void AddTest()
         {
             var bookSystemMana = new BookSystemManager();
 
             Assert.AreEqual(0, bookSystemMana.BookOrderList.Count);
+
+            var onepice = new ComicBook("ワンピース", new BookDetail(10, "尾田栄一郎", ""));
+            var guriToGura = new PictureBook("ぐりとぐら", new BookDetail(0, "ぐり", ""));
+
+            bookSystemMana.Add(onepice);
+            bookSystemMana.Add(guriToGura);
+
+            Assert.AreEqual(2, bookSystemMana.BookOrderList.Count);
+            Assert.AreEqual("ワンピース", bookSystemMana.Get(0).Title);
+            Assert.AreEqual("ぐりとぐら", bookSystemMana.Get(1).Title);
+        }
+
+        [TestMethod]
+        public void RemoveTest()
+        {
+            var bookSystemMana = new BookSystemManager();
 
             var onepice = new ComicBook("ワンピース", new BookDetail(10, "尾田栄一郎", ""));
             var guriToGura = new PictureBook("ぐりとぐら", new BookDetail(0, "ぐり", ""));
