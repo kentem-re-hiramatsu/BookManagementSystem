@@ -170,13 +170,27 @@ namespace BookManagementSystem
 
         private void UserComboBox_SelectedIndexChanged(object sender, System.EventArgs e)
         {
-            if (UserComboBox.SelectedIndex > -1 && _userMana.Get(UserComboBox.SelectedIndex).IsAdmin && !_isAdmin)
+            if (0 > UserComboBox.SelectedIndex)
+            {
+                UserInfoButton.Enabled = false;
+                return;
+            }
+
+            if (_userMana.Get(UserComboBox.SelectedIndex).IsAdmin && !_isAdmin)
             {
                 UserComboBox.SelectedItem = null;
                 MessageBox.Show("ログインしてください");
                 return;
             }
-            BorrowingAndDetailButtonEnableChanged();
+            else if (_userMana.Get(UserComboBox.SelectedIndex).IsAdmin && _isAdmin)
+            {
+                UserInfoButton.Enabled = true;
+            }
+            else
+            {
+                UserInfoButton.Enabled = false;
+                BorrowingAndDetailButtonEnableChanged();
+            }
         }
 
         private void LogInButton_Click(object sender, System.EventArgs e)
