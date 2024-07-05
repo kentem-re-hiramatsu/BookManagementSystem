@@ -121,14 +121,19 @@ namespace BookSystem.Cores.Manager
             var book = _bookOrderList[index].Borrowing;
 
             if (book.IsLendable)
+            {
                 return Consts.LOANABLE_MESSAGE;
+            }
             else if (DateTime.Now.Date > book.DeadlineDateTime.Value.Date)
             {
                 TimeSpan overDateTime = (TimeSpan)(DateTime.Now - book.DeadlineDateTime);
                 return $"貸出中({overDateTime.TotalDays.ToString("F0")}日の期限超過)";
             }
             else
+            {
                 return Consts.ON_LOAN_MESSAGE;
+
+            }
         }
     }
 }
